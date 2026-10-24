@@ -1,0 +1,12 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+<Base title="聯絡" description={`聯絡${site.doctorNameZh}醫師：合作邀約、演講、媒體採訪。`}>
+  <h1>聯絡</h1>
+  <p>演講邀約、媒體採訪、衛教合作，歡迎來信：</p>
+  <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+  <p class="notice">
+    恕無法透過網路或電子郵件提供個人病情診斷或用藥建議。若有身體不適，請直接就醫；緊急狀況請撥 119。
+  </p>
+</Base>

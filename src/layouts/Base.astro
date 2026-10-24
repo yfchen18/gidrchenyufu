@@ -1,0 +1,64 @@
+---
+import { site } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  jsonLd?: object | object[];
+  noindex?: boolean;
+}
+const { title, description = site.description, jsonLd, noindex = false } = Astro.props;
+const fullTitle = title ? `${title}｜${site.doctorNameZh}醫師` : site.name;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const nav = [
+  { href: "/articles/", label: "衛教文章" },
+  { href: "/about/", label: "關於醫師" },
+  { href: "/contact/", label: "聯絡" },
+];
+---
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ld.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">跳到主要內容</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a href="/" class="brand">
+          <span class="brand-name">{site.doctorNameZh}醫師</span>
+          <span class="brand-sub">腸胃肝膽專科 · Gastroenterology &amp; Hepatology</span>
+        </a>
+        <nav aria-label="主選單">
+          {nav.map((n) => <a href={n.href} aria-current={Astro.url.pathname.startsWith(n.href) ? "page" : undefined}>{n.label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>本網站內容為一般衛生教育資訊，不能取代個別診療。身體不適請就醫，緊急狀況請撥 119。</p>
+        <p><a href="/disclaimer/">免責聲明</a> · <a href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p class="muted">© {new Date().getFullYear()} {site.doctorNameEn}</p>
+      </div>
+    </footer>
+  </body>
+</html>

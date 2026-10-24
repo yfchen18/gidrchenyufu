@@ -1,0 +1,61 @@
+---
+// 支柱頁：每個主題一頁，自動列出所屬文章（叢集）。
+// 之後可在這裡為每個主題加上一篇完整的總覽內容。
+import Base from "../../layouts/Base.astro";
+import { pillars } from "../../data/site";
+import { articlesByPillar } from "../../lib/articles";
+import { breadcrumbLd, physicianId } from "../../lib/schema";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return pillars.map((p) => ({ params: { pillar: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const list = articlesByPillar(p.slug);
+const others = pillars.filter((x) => x.slug !== p.slug);
+const ld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: p.title,
+    description: p.summary,
+    url: `${site.url}/topics/${p.slug}/`,
+    inLanguage: "zh-TW",
+    author: { "@id": physicianId },
+    about: { "@type": "MedicalCondition", name: p.title },
+  },
+  breadcrumbLd([
+    { name: "首頁", path: "/" },
+    { name: p.title, path: `/topics/${p.slug}/` },
+  ]),
+];
+---
+<Base title={`${p.title}完整指南`} description={p.summary} jsonLd={ld}>
+  <div class="crumbs"><a href="/">首頁</a> › {p.title}</div>
+  <h1>{p.title}</h1>
+  <p class="lead">{p.summary}</p>
+
+  <h2>{p.title}相關文章</h2>
+  {list.length ? (
+    <ul class="list">
+      {list.map((a) => (
+        <li>
+          <a href={`/articles/${a.slug}/`}>{a.data.title}</a>
+          <p>{a.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="muted">文章撰寫中。</p>
+  )}
+
+  <h2>其他主題</h2>
+  <div class="cards">
+    {others.map((o) => (
+      <a class="card" href={`/topics/${o.slug}/`}>
+        <h3>{o.title}</h3>
+        <p>{o.summary}</p>
+      </a>
+    ))}
+  </div>
+</Base>

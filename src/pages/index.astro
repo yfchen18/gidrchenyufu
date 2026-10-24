@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, pillars } from "../data/site";
+import { articles } from "../lib/articles";
+import { physicianLd } from "../lib/schema";
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  url: site.url,
+  inLanguage: "zh-TW",
+  author: { "@id": physicianLd["@id"] },
+};
+const latest = articles.slice(0, 5);
+---
+<Base jsonLd={[websiteLd, physicianLd]}>
+  <section class="hero">
+    <h1>{site.doctorNameZh}醫師的腸胃肝膽衛教</h1>
+    <p class="lead">{site.tagline}。每篇文章由專科醫師撰寫，附參考文獻與最近審閱日期。</p>
+  </section>
+
+  <h2>主題</h2>
+  <div class="cards">
+    {pillars.map((p) => (
+      <a class="card" href={`/topics/${p.slug}/`}>
+        <h3>{p.title}</h3>
+        <p>{p.summary}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>最新文章</h2>
+  <ul class="list">
+    {latest.map((a) => (
+      <li>
+        <a href={`/articles/${a.slug}/`}>{a.data.title}</a>
+        <p>{a.data.description}</p>
+      </li>
+    ))}
+  </ul>
+  <p><a href="/articles/">看全部文章 →</a></p>
+</Base>

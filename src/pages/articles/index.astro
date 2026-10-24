@@ -1,0 +1,26 @@
+---
+import Base from "../../layouts/Base.astro";
+import { pillars } from "../../data/site";
+import { articlesByPillar } from "../../lib/articles";
+---
+<Base title="衛教文章" description="腸胃肝膽專科醫師撰寫的衛教文章總覽，依主題分類。">
+  <h1>衛教文章</h1>
+  {pillars.map((p) => {
+    const list = articlesByPillar(p.slug);
+    return (
+      <section>
+        <h2><a href={`/topics/${p.slug}/`}>{p.title}</a></h2>
+        {list.length ? (
+          <ul class="list">
+            {list.map((a) => (
+              <li>
+                <a href={`/articles/${a.slug}/`}>{a.data.title}</a>
+                <p>{a.data.description}</p>
+              </li>
+            ))}
+          </ul>
+        ) : <p class="muted">文章撰寫中。</p>}
+      </section>
+    );
+  })}
+</Base>

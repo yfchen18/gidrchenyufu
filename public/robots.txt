@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gidrchenyufu.com/sitemap-index.xml
