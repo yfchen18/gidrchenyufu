@@ -11,7 +11,18 @@ export const physicianLd = {
   alternateName: site.doctorNameEn,
   jobTitle: "腸胃肝膽專科醫師",
   url: `${site.url}/about/`,
-  knowsAbout: ["Gastroenterology", "Hepatology", "Endoscopy", "胃食道逆流", "幽門桿菌", "脂肪肝"],
+  knowsAbout: [
+    "Gastroenterology",
+    "Hepatology",
+    "Endoscopy",
+    "胃食道逆流",
+    "幽門桿菌",
+    "脂肪肝",
+    "大腸癌篩檢",
+    "大腸鏡",
+    "腸躁症",
+    "慢性便秘",
+  ],
   ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
 };
 

@@ -80,6 +80,20 @@ export const pillars = [
     summary: "超音波報告上的脂肪肝代表什麼、瘦的人為什麼也會有，以及怎麼逆轉。",
     keywords: ["脂肪肝", "MASLD", "肝纖維化"],
   },
+  {
+    slug: "colon-screening",
+    title: "大腸癌篩檢與大腸鏡",
+    summary:
+      "糞便潛血陽性怎麼辦、幾歲該開始篩、切了瘜肉之後多久要再做一次大腸鏡。",
+    keywords: ["大腸癌篩檢", "糞便潛血", "大腸鏡", "大腸瘜肉"],
+  },
+  {
+    slug: "ibs-constipation",
+    title: "腸躁症與便秘",
+    summary:
+      "肚子痛又拉、長期便秘：檢查正常不等於沒病，這些症狀有明確的診斷標準與治療順序。",
+    keywords: ["腸躁症", "大腸激躁症", "便秘", "低 FODMAP"],
+  },
 ] as const;
 
 export type PillarSlug = (typeof pillars)[number]["slug"];
