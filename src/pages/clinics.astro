@@ -37,7 +37,7 @@ const mapUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&quer
         電話：<a href={`tel:${c.phone.replace(/-/g, "")}`}>{c.phone}</a>
       </p>
       {c.schedule.length ? (
-        <table>
+        <table class="schedule">
           <thead><tr><th></th><th>上午</th><th>下午</th><th>晚上</th></tr></thead>
           <tbody>
             {c.schedule.map((row) => (

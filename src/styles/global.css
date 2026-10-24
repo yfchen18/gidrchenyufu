@@ -87,3 +87,4 @@ summary { cursor: pointer; font-weight: 600; }
 table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 16px 0; display: block; overflow-x: auto; }
 th, td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
 th { background: var(--accent-soft); }
+.schedule th, .schedule td { white-space: nowrap; padding: 8px 6px; text-align: center; }
