@@ -17,7 +17,7 @@ export interface Article {
 }
 
 const toDay = (d: unknown) =>
-  d instanceof Date ? d.toISOString().slice(0, 10) : String(d);
+  (d instanceof Date ? d.toISOString() : String(d)).slice(0, 10);
 
 const modules =import.meta.glob("../content/articles/*.md", { eager: true }) as Record<
   string,
