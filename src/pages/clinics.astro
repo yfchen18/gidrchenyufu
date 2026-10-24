@@ -1,0 +1,58 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, clinics } from "../data/site";
+import { breadcrumbLd, physicianId } from "../lib/schema";
+
+const ld = [
+  ...clinics.map((c) => ({
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    name: c.name,
+    telephone: c.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: c.address,
+      addressRegion: "桃園市",
+      addressCountry: "TW",
+    },
+    employee: { "@id": physicianId },
+  })),
+  breadcrumbLd([{ name: "首頁", path: "/" }, { name: "看診資訊", path: "/clinics/" }]),
+];
+const mapUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`;
+---
+<Base
+  title="看診資訊"
+  description={`${site.doctorNameZh}醫師門診時間與看診地點：中壢長安內科、八德日日晴聯合診所。`}
+  jsonLd={ld}
+>
+  <h1>看診資訊</h1>
+  <p class="lead">門診時間如有異動，以診所公告為準，出發前建議先來電確認。</p>
+
+  {clinics.map((c) => (
+    <section>
+      <h2>{c.name}</h2>
+      <p>
+        地址：<a href={mapUrl(c.address)} rel="noopener">{c.address}</a><br />
+        電話：<a href={`tel:${c.phone.replace(/-/g, "")}`}>{c.phone}</a>
+      </p>
+      {c.schedule.length ? (
+        <table>
+          <thead><tr><th></th><th>上午</th><th>下午</th><th>晚上</th></tr></thead>
+          <tbody>
+            {c.schedule.map((row) => (
+              <tr>
+                <th scope="row">{row[0]}</th>
+                {row.slice(1).map((t) => <td>{t || "—"}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : null}
+      {c.note && <p class="muted">{c.note}</p>}
+    </section>
+  ))}
+
+  <h2>主治項目</h2>
+  <ul>{site.expertise.map((e) => <li>{e}</li>)}</ul>
+</Base>
