@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers 靜態網站設定：部署 Astro 輸出的 dist 資料夾
+  "name": "gidrchenyufu",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
