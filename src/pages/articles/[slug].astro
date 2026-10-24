@@ -58,7 +58,6 @@ if (data.faq?.length) {
       <span>撰文：<a href="/about/">{site.doctorNameZh}醫師</a></span>
       <span>最近審閱：<time datetime={data.reviewed}>{data.reviewed}</time></span>
     </div>
-    {data.draft && <p class="notice">示範稿：內容尚待醫師審閱，正式發布前請勿引用。</p>}
 
     <Content />
 
