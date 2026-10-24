@@ -2,6 +2,8 @@
   // Cloudflare Workers 靜態網站設定：部署 Astro 輸出的 dist 資料夾
   "name": "gidrchenyufu",
   "compatibility_date": "2026-10-01",
+  // 綁定自訂網域：部署時 Cloudflare 會自動建立 DNS 與 SSL 憑證
+  "routes": [{ "pattern": "gidrchenyufu.com", "custom_domain": true }],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
