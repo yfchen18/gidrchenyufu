@@ -5,7 +5,7 @@ import { physicianLd, breadcrumbLd } from "../lib/schema";
 ---
 <Base
   title="關於醫師"
-  description={`${site.doctorNameZh}醫師，內科與消化系專科醫師，專長胃腸內視鏡、幽門桿菌與脂肪肝。`}
+  description={`${site.doctorNameZh}醫師，台灣消化系醫學會專科醫師，前台北榮總胃腸肝膽科總醫師，專長胃腸內視鏡、肝膽疾病與代謝照護。`}
   jsonLd={[
     { ...physicianLd, "@type": ["Person", "Physician"], hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })) },
     breadcrumbLd([{ name: "首頁", path: "/" }, { name: "關於醫師", path: "/about/" }]),
@@ -14,18 +14,14 @@ import { physicianLd, breadcrumbLd } from "../lib/schema";
   <h1>關於{site.doctorNameZh}醫師</h1>
   <p class="lead">{site.philosophy}</p>
 
-  <h2>專科資格</h2>
+  <h2>專科資格與學會</h2>
   <ul>{site.credentials.map((c) => <li>{c}</li>)}</ul>
 
-  <h2>學經歷</h2>
-  <ul>{site.education.map((e) => <li>{e}</li>)}</ul>
+  <h2>訓練經歷</h2>
+  <ul>{site.training.map((e) => <li>{e}</li>)}</ul>
 
   <h2>專長</h2>
-  <ul>
-    <li>胃鏡、大腸鏡檢查與息肉切除</li>
-    <li>胃食道逆流、消化性潰瘍、幽門桿菌治療</li>
-    <li>脂肪肝與慢性肝病追蹤、腹部超音波</li>
-  </ul>
+  <ul>{site.expertise.map((e) => <li>{e}</li>)}</ul>
 
   <h2>關於這個網站</h2>
   <p>
