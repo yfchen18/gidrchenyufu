@@ -6,29 +6,41 @@ import { fileURLToPath } from "node:url";
 const SITE = "https://gidrchenyufu.com";
 
 // ---- sitemap lastmod ----
-// 從文章 frontmatter 讀 reviewed（沒有就用 published），當作 sitemap 的 lastmod。
-// 主題頁與文章列表／首頁用其底下最新一篇文章的日期；其他頁面不放 lastmod。
-const articlesDir = new URL("./src/content/articles/", import.meta.url);
+// 從文章／週報 frontmatter 讀 reviewed（沒有就用 published），當作 sitemap 的 lastmod。
+// 主題頁、文章列表與首頁用其底下最新一篇文章的日期；/news/ 用最新一期週報的日期；
+// 其他頁面不放 lastmod。draft: true 的不算。
 const fmField = (fm, key) => fm.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+?)["']?\\s*$`, "m"))?.[1];
-const articleMeta = readdirSync(articlesDir)
-  .filter((f) => f.endsWith(".md"))
-  .map((f) => {
-    const src = readFileSync(new URL(f, articlesDir), "utf8");
-    const fm = src.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "";
-    if (/^draft:\s*true\s*$/m.test(fm)) return null;
-    const date = fmField(fm, "reviewed") ?? fmField(fm, "published");
-    return { slug: f.replace(/\.md$/, ""), pillar: fmField(fm, "pillar"), date };
-  })
-  .filter((a) => a && /^\d{4}-\d{2}-\d{2}$/.test(a.date ?? ""));
+const readMeta = (dir) => {
+  const base = new URL(dir, import.meta.url);
+  let files = [];
+  try {
+    files = readdirSync(base).filter((f) => f.endsWith(".md"));
+  } catch {
+    return [];
+  }
+  return files
+    .map((f) => {
+      const src = readFileSync(new URL(f, base), "utf8");
+      const fm = src.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "";
+      if (/^draft:\s*true\s*$/m.test(fm)) return null;
+      const date = fmField(fm, "reviewed") ?? fmField(fm, "published");
+      return { slug: f.replace(/\.md$/, ""), pillar: fmField(fm, "pillar"), date };
+    })
+    .filter((a) => a && /^\d{4}-\d{2}-\d{2}$/.test(a.date ?? ""));
+};
+const articleMeta = readMeta("./src/content/articles/");
+const newsMeta = readMeta("./src/content/news/");
 const latest = (list) => list.map((a) => a.date).sort().at(-1);
-const lastmodByPath = new Map(articleMeta.map((a) => [`/articles/${a.slug}/`, a.date]));
+const lastmodByPath = new Map([
+  ...articleMeta.map((a) => [`/articles/${a.slug}/`, a.date]),
+  ...newsMeta.map((n) => [`/news/${n.slug}/`, n.date]),
+]);
 for (const p of new Set(articleMeta.map((a) => a.pillar))) {
   lastmodByPath.set(`/topics/${p}/`, latest(articleMeta.filter((a) => a.pillar === p)));
 }
-if (articleMeta.length) {
-  lastmodByPath.set("/articles/", latest(articleMeta));
-  lastmodByPath.set("/", latest(articleMeta));
-}
+if (articleMeta.length) lastmodByPath.set("/articles/", latest(articleMeta));
+if (newsMeta.length) lastmodByPath.set("/news/", latest(newsMeta));
+if (articleMeta.length || newsMeta.length) lastmodByPath.set("/", latest([...articleMeta, ...newsMeta]));
 
 // ---- 301 trailing-slash redirects ----
 // Cloudflare Workers 靜態資源的 html_handling 會把 /about 以 307（暫時）轉到 /about/，
