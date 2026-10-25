@@ -15,7 +15,7 @@
 
 複製 `src/content/articles/h-pylori-should-i-treat.md`，改檔名（檔名就是網址，用英文小寫加連字號），再修改開頭的設定：
 
-- `pillar`：所屬主題，必須是 `site.ts` 裡的 slug（`gerd`、`h-pylori`、`fatty-liver`、`colon-screening`、`ibs-constipation`）
+- `pillar`：所屬主題，必須是 `site.ts` 裡的 slug（`gerd`、`h-pylori`、`fatty-liver`、`colon-screening`、`ibs-constipation`、`endoscopy`、`hemorrhoids-bleeding`）
 - `reviewed`：醫師最近審閱日期，每次更新內容就改
 - `draft: true`：示範／草稿，頁面會加上 noindex，不會被 Google 收錄；正式發布時刪掉這行
 - `faq`、`references`：選填，會自動產生常見問題區塊、參考文獻與結構化資料

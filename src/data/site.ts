@@ -94,6 +94,20 @@ export const pillars = [
       "肚子痛又拉、長期便秘：檢查正常不等於沒病，這些症狀有明確的診斷標準與治療順序。",
     keywords: ["腸躁症", "大腸激躁症", "便秘", "低 FODMAP"],
   },
+  {
+    slug: "endoscopy",
+    title: "胃鏡與大腸鏡檢查",
+    summary:
+      "清腸藥怎麼喝才乾淨、無痛麻醉安不安全、在吃抗凝血藥要不要停：檢查前後該知道的事。",
+    keywords: ["胃鏡", "大腸鏡", "清腸", "無痛內視鏡", "麻醉鎮靜"],
+  },
+  {
+    slug: "hemorrhoids-bleeding",
+    title: "痔瘡與血便",
+    summary:
+      "痔瘡怎麼治、肛門為什麼痛、血便的顏色代表什麼：哪些可以先觀察，哪些一定要檢查。",
+    keywords: ["痔瘡", "血便", "肛裂", "肛門痛", "橡皮圈結紮"],
+  },
 ] as const;
 
 export type PillarSlug = (typeof pillars)[number]["slug"];

@@ -22,6 +22,8 @@ export const physicianLd = {
     "大腸鏡",
     "腸躁症",
     "慢性便秘",
+    "胃鏡",
+    "痔瘡",
   ],
   ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
 };
