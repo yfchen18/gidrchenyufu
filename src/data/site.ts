@@ -50,7 +50,7 @@ export const analytics = {
   // 不要整個 <meta> 標籤。驗證通過後這一行要保留，拿掉會失去驗證。
   googleSiteVerification: "",
   // GA4 評估 ID，格式 G-XXXXXXXXXX
-  ga4MeasurementId: "",
+  ga4MeasurementId: "G-3KQ2EJC7ZR",
   // Cloudflare Web Analytics 的 token（在 Cloudflare 後台取得）
   cloudflareToken: "",
 };
