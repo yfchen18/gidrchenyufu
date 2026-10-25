@@ -7,7 +7,8 @@ interface Props {
   description?: string;
   jsonLd?: object | object[];
   noindex?: boolean;
-  // 社群分享預覽圖（站內路徑或完整網址），預設 /og.png
+  // 社群分享預覽圖（站內路徑或完整網址），預設 /og.jpg
+  // 這張圖是醫師自己做的，直接換掉 public/og.jpg 即可；換圖請維持 1200×630
   image?: string;
   imageAlt?: string;
   // og:type：一般頁面 website，文章頁傳 article
@@ -20,7 +21,7 @@ const {
   description = site.description,
   jsonLd,
   noindex = false,
-  image = "/og.png",
+  image = "/og.jpg",
   imageAlt = `${site.name}：${site.tagline}`,
   ogType = "website",
   publishedTime,
@@ -29,7 +30,7 @@ const {
 const fullTitle = title ? `${title}｜${site.doctorNameZh}醫師` : site.homeTitle;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL(image, site.url).href;
-const isDefaultImage = image === "/og.png";
+const isDefaultImage = image === "/og.jpg";
 const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const nav = [
   { href: "/articles/", label: "衛教文章" },

@@ -12,7 +12,7 @@
 | 新增新知週報 | 在 `src/content/news/` 新增 `.md`，規格見 `docs/news-authoring.md` |
 | 線上預約連結與 QR | `src/data/site.ts` 的 `clinics[].booking`（見下） |
 | 顏色、字體 | `src/styles/global.css` |
-| 社群分享預覽圖的文字 | 改 `scripts/make-og.mjs` 再跑 `node scripts/make-og.mjs` |
+| 社群分享預覽圖 | 直接換掉 `public/og.jpg`，維持 1200×630 |
 
 ## 新增文章
 
