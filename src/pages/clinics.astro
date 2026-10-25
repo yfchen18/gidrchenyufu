@@ -1,50 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
 import { site, clinics } from "../data/site";
-import { breadcrumbLd, physicianId } from "../lib/schema";
-
-// 門診時段轉成結構化資料，讓 Google 能直接顯示營業時間
-const dayOfWeek: Record<string, string> = {
-  週一: "Monday",
-  週二: "Tuesday",
-  週三: "Wednesday",
-  週四: "Thursday",
-  週五: "Friday",
-  週六: "Saturday",
-  週日: "Sunday",
-};
-const openingHours = (schedule: string[][]) =>
-  schedule.flatMap((row) =>
-    row.slice(1).filter(Boolean).map((slot) => {
-      const [opens, closes] = slot.split("–");
-      return {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: `https://schema.org/${dayOfWeek[row[0]]}`,
-        opens,
-        closes,
-      };
-    })
-  );
+import { breadcrumbLd, clinicLd } from "../lib/schema";
 
 const ld = [
-  ...clinics.map((c) => {
-    const hours = openingHours(c.schedule);
-    return {
-      "@context": "https://schema.org",
-      "@type": "MedicalClinic",
-      name: c.name,
-      telephone: c.phone,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: c.address,
-        addressRegion: "桃園市",
-        addressCountry: "TW",
-      },
-      ...(c.mapUrl ? { hasMap: c.mapUrl } : {}),
-      ...(hours.length ? { openingHoursSpecification: hours } : {}),
-      employee: { "@id": physicianId },
-    };
-  }),
+  ...clinics.map(clinicLd),
   breadcrumbLd([{ name: "首頁", path: "/" }, { name: "看診資訊", path: "/clinics/" }]),
 ];
 const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`;
@@ -58,7 +18,7 @@ const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&q
   <p class="lead">門診時間如有異動，以診所公告為準，出發前建議先來電確認。</p>
 
   {clinics.map((c) => (
-    <section>
+    <section id={c.id}>
       <h2>{c.name}</h2>
       <p>
         地址：<a href={c.mapUrl ?? searchUrl(c.address)} target="_blank" rel="noopener">{c.address}</a><br />
