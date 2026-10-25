@@ -7,7 +7,7 @@ import { physicianLd, breadcrumbLd } from "../lib/schema";
   title="關於醫師"
   description={`${site.doctorNameZh}醫師，台灣消化系醫學會專科醫師，前台北榮總胃腸肝膽科總醫師，專長胃腸內視鏡、肝膽疾病與代謝照護。`}
   jsonLd={[
-    { ...physicianLd, "@type": ["Person", "Physician"], hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })) },
+    { ...physicianLd, hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })) },
     breadcrumbLd([{ name: "首頁", path: "/" }, { name: "關於醫師", path: "/about/" }]),
   ]}
 >

@@ -45,10 +45,19 @@ type Booking = { label: string; url: string; qr: string } | null;
 
 // 看診地點與門診時段。schedule 每列：[星期, 上午, 下午, 晚上]，空字串代表無門診。
 // mapUrl 選填：填了就用這個連結，沒填就以地址自動產生 Google 地圖搜尋連結。
+// id：結構化資料 @id 與頁面錨點用（/clinics/#id），設定後請勿更改。
+// region／locality／street：地址拆欄，給結構化資料 PostalAddress 用，需與 address 一致。
+// postalCode：3 碼郵遞區號（由行政區判定）；geo 選填：經緯度，沒有就不填。
 export const clinics = [
   {
+    id: "changan",
     name: "中壢長安內科",
     address: "桃園市中壢區中山東路二段550號",
+    region: "桃園市",
+    locality: "中壢區",
+    street: "中山東路二段550號",
+    postalCode: "320",
+    geo: undefined as { latitude: number; longitude: number } | undefined,
     phone: "03-4650508",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E5%AE%89%E5%85%A7%E7%A7%91%E8%A8%BA%E6%89%80%20%E6%A1%83%E5%9C%92%E5%B8%82%E4%B8%AD%E5%A3%A2%E5%8D%80%E4%B8%AD%E5%B1%B1%E6%9D%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5550%E8%99%9F",
@@ -61,8 +70,17 @@ export const clinics = [
     note: "",
   },
   {
+    id: "ririqing",
     name: "日日晴聯合診所",
     address: "桃園市八德區建德路269號",
+    region: "桃園市",
+    locality: "八德區",
+    street: "建德路269號",
+    postalCode: "334",
+    // 座標取自下方 mapUrl 的 Google 地圖地點（!3d／!4d）
+    geo: { latitude: 24.9321606, longitude: 121.2806876 } as
+      | { latitude: number; longitude: number }
+      | undefined,
     phone: "03-3688539",
     mapUrl:
       "https://www.google.com/maps/place/%E6%97%A5%E6%97%A5%E6%99%B4%E8%81%AF%E5%90%88%E8%A8%BA%E6%89%80/@24.9321606,121.2781127,17z/data=!3m1!4b1!4m6!3m5!1s0x3468195e8fb394ef:0x6b7010c07c449309!8m2!3d24.9321606!4d121.2806876!16s%2Fg%2F11xkpp4rqd",
