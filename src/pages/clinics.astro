@@ -3,23 +3,51 @@ import Base from "../layouts/Base.astro";
 import { site, clinics } from "../data/site";
 import { breadcrumbLd, physicianId } from "../lib/schema";
 
+// 門診時段轉成結構化資料，讓 Google 能直接顯示營業時間
+const dayOfWeek: Record<string, string> = {
+  週一: "Monday",
+  週二: "Tuesday",
+  週三: "Wednesday",
+  週四: "Thursday",
+  週五: "Friday",
+  週六: "Saturday",
+  週日: "Sunday",
+};
+const openingHours = (schedule: string[][]) =>
+  schedule.flatMap((row) =>
+    row.slice(1).filter(Boolean).map((slot) => {
+      const [opens, closes] = slot.split("–");
+      return {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: `https://schema.org/${dayOfWeek[row[0]]}`,
+        opens,
+        closes,
+      };
+    })
+  );
+
 const ld = [
-  ...clinics.map((c) => ({
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: c.name,
-    telephone: c.phone,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: c.address,
-      addressRegion: "桃園市",
-      addressCountry: "TW",
-    },
-    employee: { "@id": physicianId },
-  })),
+  ...clinics.map((c) => {
+    const hours = openingHours(c.schedule);
+    return {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      name: c.name,
+      telephone: c.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: c.address,
+        addressRegion: "桃園市",
+        addressCountry: "TW",
+      },
+      ...(c.mapUrl ? { hasMap: c.mapUrl } : {}),
+      ...(hours.length ? { openingHoursSpecification: hours } : {}),
+      employee: { "@id": physicianId },
+    };
+  }),
   breadcrumbLd([{ name: "首頁", path: "/" }, { name: "看診資訊", path: "/clinics/" }]),
 ];
-const mapUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`;
+const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`;
 ---
 <Base
   title="看診資訊"
@@ -33,7 +61,7 @@ const mapUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&quer
     <section>
       <h2>{c.name}</h2>
       <p>
-        地址：<a href={mapUrl(c.address)} rel="noopener">{c.address}</a><br />
+        地址：<a href={c.mapUrl ?? searchUrl(c.address)} target="_blank" rel="noopener">{c.address}</a><br />
         電話：<a href={`tel:${c.phone.replace(/-/g, "")}`}>{c.phone}</a>
       </p>
       {c.schedule.length ? (
