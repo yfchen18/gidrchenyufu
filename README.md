@@ -8,6 +8,7 @@
 |---|---|
 | 醫師姓名、資歷、理念、聯絡信箱 | `src/data/site.ts` |
 | 新增／調整主題（支柱頁） | `src/data/site.ts` 的 `pillars` |
+| 主題頁的總覽正文 | `src/content/pillars/<slug>.md` |
 | 新增文章 | 在 `src/content/articles/` 新增一個 `.md` 檔 |
 | 顏色、字體 | `src/styles/global.css` |
 
@@ -21,6 +22,17 @@
 - `faq`、`references`：選填，會自動產生常見問題區塊、參考文獻與結構化資料
 
 文章會自動出現在首頁、文章總覽、所屬主題頁，以及同主題文章的「延伸閱讀」。
+
+## 主題頁（支柱頁）正文
+
+每個主題頁的總覽內容放在 `src/content/pillars/` 裡，檔名必須對應 `site.ts` 的 pillar slug（`gerd.md`、`h-pylori.md`、`fatty-liver.md`）。開頭的設定：
+
+- `title`：頁面的 H1 與瀏覽器標題，寫成民眾會實際搜尋的長標題
+- `description`：meta description，Google 搜尋結果顯示的那段
+- `reviewed`：醫師最近審閱日期，每次改內容就更新
+- `faq`、`references`：選填，會自動產生常見問題區塊、參考文獻與 FAQ 結構化資料
+
+沒有對應 `.md` 檔的主題，頁面會自動退回只顯示文章列表，不會壞掉。
 
 ## 本機預覽
 
