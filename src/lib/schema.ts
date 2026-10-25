@@ -14,11 +14,11 @@ export const physicianLd = {
   "@id": physicianId,
   name: `${site.doctorNameZh}醫師`,
   alternateName: site.doctorNameEn,
-  jobTitle: "腸胃肝膽專科醫師",
+  jobTitle: "胃腸肝膽專科醫師",
   url: `${site.url}/about/`,
   hasOccupation: {
     "@type": "Occupation",
-    name: "腸胃肝膽專科醫師",
+    name: "胃腸肝膽專科醫師",
     occupationLocation: { "@type": "City", name: "桃園市" },
   },
   knowsAbout: [

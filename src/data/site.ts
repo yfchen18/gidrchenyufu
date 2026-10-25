@@ -6,10 +6,10 @@ export const site = {
   doctorNameZh: "陳昱甫",
   doctorNameEn: "Yu-Fu Chen, MD",
   // 網站名稱（方向一：人名 + 專科定位）
-  name: "陳昱甫醫師｜腸胃肝膽專科",
+  name: "陳昱甫醫師｜胃腸肝膽專科",
   tagline: "胃腸鏡、幽門桿菌、脂肪肝的白話衛教",
   description:
-    "腸胃肝膽專科醫師撰寫的衛教文章：胃食道逆流、幽門桿菌、脂肪肝、胃鏡與大腸鏡，內容附參考文獻與審閱日期。",
+    "胃腸肝膽專科醫師撰寫的衛教文章：胃食道逆流、幽門桿菌、脂肪肝、胃鏡與大腸鏡，內容附參考文獻與審閱日期。",
   email: "contact@gidrchenyufu.com",
   locale: "zh-TW",
   // 專科資格與學會

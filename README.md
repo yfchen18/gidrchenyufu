@@ -1,6 +1,6 @@
 # gidrchenyufu.com
 
-腸胃肝膽專科醫師個人衛教網站，使用 [Astro](https://astro.build) 建置的靜態網站，部署於 Cloudflare。
+胃腸肝膽專科醫師個人衛教網站，使用 [Astro](https://astro.build) 建置的靜態網站，部署於 Cloudflare。
 
 ## 常用修改
 
@@ -11,6 +11,7 @@
 | 新增文章 | 在 `src/content/articles/` 新增一個 `.md` 檔 |
 | 線上預約連結與 QR | `src/data/site.ts` 的 `clinics[].booking`（見下） |
 | 顏色、字體 | `src/styles/global.css` |
+| 社群分享預覽圖的文字 | 改 `scripts/make-og.mjs` 再跑 `node scripts/make-og.mjs` |
 
 ## 新增文章
 
