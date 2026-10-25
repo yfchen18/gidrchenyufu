@@ -1,8 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
+import avatar from "../assets/chen-yufu-avatar.jpg";
 import { site, pillars } from "../data/site";
 import { articles } from "../lib/articles";
 import { physicianLd } from "../lib/schema";
+import { getNews, newsTitle } from "../lib/news";
 
 const websiteLd = {
   "@context": "https://schema.org",
@@ -13,12 +16,107 @@ const websiteLd = {
   author: { "@id": physicianLd["@id"] },
 };
 const latest = articles.slice(0, 5);
+// 最新一期新知週報（沒有已發布的週報就不顯示）
+const latestNews = (await getNews())[0];
+
+// 依症狀分流：民眾搜尋的是症狀而不是病名，這一區同時方便讀者，
+// 也讓首頁有實質內文與指向文章的內部連結。新增文章時記得補一列。
+const bySymptom: { symptom: string; links: { text: string; href: string }[] }[] = [
+  {
+    symptom: "火燒心、酸水上湧、胸口灼熱",
+    links: [{ text: "胃食道逆流怎麼治", href: "/articles/gerd-symptoms-and-treatment/" }],
+  },
+  {
+    symptom: "喉嚨卡卡、一直清喉嚨、聲音沙啞",
+    links: [{ text: "是不是咽喉逆流", href: "/articles/lpr-throat-symptoms/" }],
+  },
+  {
+    symptom: "上腹痛、胃脹、驗出幽門桿菌",
+    links: [
+      { text: "要不要除菌", href: "/articles/h-pylori-should-i-treat/" },
+      { text: "除菌藥怎麼吃", href: "/articles/h-pylori-eradication-and-retest/" },
+    ],
+  },
+  {
+    symptom: "大便有血、肛門痛",
+    links: [
+      { text: "血便的顏色代表什麼", href: "/articles/rectal-bleeding-what-to-do/" },
+      { text: "痔瘡怎麼治", href: "/articles/hemorrhoids-treatment/" },
+      { text: "肛裂與肛門痛", href: "/articles/anal-pain-and-fissure/" },
+    ],
+  },
+  {
+    symptom: "肚子痛又拉、長期便秘",
+    links: [
+      { text: "腸躁症", href: "/articles/ibs-what-is-it/" },
+      { text: "慢性便秘", href: "/articles/chronic-constipation/" },
+    ],
+  },
+  {
+    symptom: "健檢驗出脂肪肝、肝指數偏高",
+    links: [
+      { text: "脂肪肝要擔心嗎", href: "/articles/fatty-liver-what-to-do/" },
+      { text: "肝指數偏高要查什麼", href: "/articles/elevated-liver-enzymes/" },
+      { text: "有糖尿病要查肝纖維化", href: "/articles/diabetes-liver-fibrosis-screening/" },
+    ],
+  },
+  {
+    symptom: "打減重針後腸胃不適、不知道怎麼吃",
+    links: [
+      { text: "噁心、便秘、腹瀉怎麼辦", href: "/articles/glp1-gi-side-effects/" },
+      { text: "蛋白質與進食順序", href: "/articles/glp1-diet-protein/" },
+      { text: "肚子痛要擔心什麼", href: "/articles/glp1-gallbladder-pancreas/" },
+      { text: "做胃鏡前要停藥嗎", href: "/articles/glp1-before-endoscopy/" },
+    ],
+  },
+  {
+    symptom: "考慮要不要打減重針",
+    links: [
+      { text: "兩種針怎麼選", href: "/articles/glp1-which-drug-to-choose/" },
+      { text: "會瘦多少、停藥會不會復胖", href: "/articles/glp1-how-much-weight-loss/" },
+      { text: "哪些人不適合用", href: "/articles/glp1-who-should-not-use/" },
+    ],
+  },
+  {
+    symptom: "糞便潛血陽性、準備做胃鏡或大腸鏡",
+    links: [
+      { text: "潛血陽性下一步", href: "/articles/fit-positive-what-next/" },
+      { text: "清腸怎麼喝", href: "/articles/colonoscopy-bowel-prep/" },
+      { text: "無痛麻醉安全嗎", href: "/articles/endoscopy-sedation/" },
+      { text: "抗凝血藥要不要停", href: "/articles/endoscopy-blood-thinners/" },
+    ],
+  },
+];
 ---
 <Base jsonLd={[websiteLd, physicianLd]}>
   <section class="hero">
-    <h1>{site.doctorNameZh}醫師的腸胃肝膽衛教</h1>
-    <p class="lead">{site.tagline}。每篇文章由專科醫師撰寫，附參考文獻與最近審閱日期。</p>
+    <div class="hero-head">
+      <Image
+        class="avatar"
+        src={avatar}
+        alt={`${site.doctorNameZh}醫師`}
+        widths={[96, 192]}
+        sizes="96px"
+        loading="eager"
+      />
+      <h1>{site.doctorNameZh}醫師的胃腸肝膽衛教</h1>
+    </div>
+    <p class="lead">
+      火燒心、胃脹、血便、長期便秘、健檢肝指數異常——這些症狀該不該做胃鏡或大腸鏡？
+      這裡用白話說明判斷依據與治療選擇，每篇由胃腸肝膽專科醫師撰寫，附參考文獻與最近審閱日期。
+      門診在桃園中壢與八德。
+    </p>
   </section>
+
+  {latestNews && (
+    <aside class="box">
+      <h2>{newsTitle}・最新一期</h2>
+      <p><a href={`/news/${latestNews.id}/`}><strong>{latestNews.data.title}</strong></a></p>
+      <p class="muted"><time datetime={latestNews.data.published}>{latestNews.data.published}</time>{latestNews.data.sources_period && <> · 資料期間 {latestNews.data.sources_period}</>}</p>
+      <p>{latestNews.data.description}</p>
+      <p><a href="/news/">看所有週報 →</a></p>
+    </aside>
+  )}
 
   <h2>主題</h2>
   <div class="cards">
@@ -29,6 +127,20 @@ const latest = articles.slice(0, 5);
       </a>
     ))}
   </div>
+
+  <h2>從症狀開始找</h2>
+  <p>不確定自己的狀況屬於哪一類，可以從最困擾你的症狀往下看：</p>
+  <dl class="symptoms">
+    {bySymptom.map((s) => (
+      <>
+        <dt>{s.symptom}</dt>
+        <dd>{s.links.map((l, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={l.href}>{l.text}</a></>))}</dd>
+      </>
+    ))}
+  </dl>
+  <p class="muted">
+    出現吞嚥困難、吐血或解黑便、不明原因體重減輕、持續嘔吐或缺鐵性貧血，請不要先自己觀察，直接就醫評估。
+  </p>
 
   <h2>最新文章</h2>
   <ul class="list">
@@ -41,3 +153,50 @@ const latest = articles.slice(0, 5);
   </ul>
   <p><a href="/articles/">看全部文章 →</a></p>
 </Base>
+
+<style>
+  /* 首頁標題旁的圓形頭像：給一點人味，但不擋入口文字 */
+  .hero-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-head h1 {
+    margin: 0;
+  }
+  .avatar {
+    width: 96px;
+    height: 96px;
+    flex: none;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  @media (max-width: 639px) {
+    .hero-head { gap: 13px; }
+    .avatar { width: 64px; height: 64px; }
+  }
+  .symptoms {
+    margin: 12px 0 18px;
+    display: grid;
+    gap: 4px 20px;
+  }
+  .symptoms dt {
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .symptoms dd {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  @media (min-width: 720px) {
+    .symptoms {
+      grid-template-columns: minmax(0, 18em) minmax(0, 1fr);
+      align-items: baseline;
+    }
+    .symptoms dt { margin-top: 0; }
+    .symptoms dt,
+    .symptoms dd { padding: 5px 0; border-top: 1px solid var(--line); }
+  }
+</style>

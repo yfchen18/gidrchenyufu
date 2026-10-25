@@ -1,17 +1,35 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import { site } from "../data/site";
 import { physicianLd, breadcrumbLd } from "../lib/schema";
+import portrait from "../assets/chen-yufu.jpg";
+
+// 形象照同時給結構化資料用，讓搜尋引擎把這張臉和醫師本人綁在一起
+const portraitUrl = new URL(portrait.src, site.url).href;
 ---
 <Base
   title="關於醫師"
   description={`${site.doctorNameZh}醫師，台灣消化系醫學會專科醫師，前台北榮總胃腸肝膽科總醫師，專長胃腸內視鏡、肝膽疾病與代謝照護。`}
   jsonLd={[
-    { ...physicianLd, "@type": ["Person", "Physician"], hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })) },
+    {
+      ...physicianLd,
+      image: portraitUrl,
+      hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })),
+    },
     breadcrumbLd([{ name: "首頁", path: "/" }, { name: "關於醫師", path: "/about/" }]),
   ]}
 >
   <h1>關於{site.doctorNameZh}醫師</h1>
+
+  <Image
+    class="portrait"
+    src={portrait}
+    alt={`${site.doctorNameZh}醫師`}
+    widths={[280, 560]}
+    sizes="(max-width: 639px) 200px, 280px"
+    loading="eager"
+  />
   <p class="lead">{site.philosophy}</p>
 
   <h2>專科資格與學會</h2>
@@ -26,7 +44,25 @@ import { physicianLd, breadcrumbLd } from "../lib/schema";
 
   <h2>關於這個網站</h2>
   <p>
-    這裡的文章由我本人撰寫或審閱，目的是用白話把常見的腸胃肝膽問題講清楚，
+    這裡的文章由我本人撰寫或審閱，目的是用白話把常見的胃腸肝膽問題講清楚，
     幫助你在就醫前後做出更好的判斷。每篇文章都會標示參考文獻與最近審閱日期。
   </p>
 </Base>
+
+<style>
+  .portrait {
+    display: block;
+    width: 280px;
+    height: auto;
+    margin: 0 0 18px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  @media (max-width: 639px) {
+    .portrait {
+      width: 200px;
+      margin: 0 auto 16px;
+    }
+  }
+</style>

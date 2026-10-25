@@ -3,7 +3,7 @@ import Base from "../../layouts/Base.astro";
 import { pillars } from "../../data/site";
 import { articlesByPillar } from "../../lib/articles";
 ---
-<Base title="衛教文章" description="腸胃肝膽專科醫師撰寫的衛教文章總覽，依主題分類。">
+<Base title="衛教文章" description="胃腸肝膽專科醫師撰寫的衛教文章總覽，依主題分類。">
   <h1>衛教文章</h1>
   {pillars.map((p) => {
     const list = articlesByPillar(p.slug);
