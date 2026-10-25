@@ -28,6 +28,18 @@ export const physicianLd = {
   ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
 };
 
+// 文章 author／reviewedBy 用的醫師資料：帶完整姓名，不只 @id，
+// 讓搜尋引擎在單一文章頁就能讀到作者是誰（資料沿用 physicianLd，不重複維護）
+export const physicianRef = {
+  "@type": "Person",
+  "@id": physicianLd["@id"],
+  name: physicianLd.name,
+  alternateName: physicianLd.alternateName,
+  jobTitle: physicianLd.jobTitle,
+  url: physicianLd.url,
+  ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
+};
+
 export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
