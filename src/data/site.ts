@@ -37,7 +37,9 @@ export const site = {
   ],
   philosophy:
     "把檢查結果講到你聽得懂，再一起決定下一步。",
-  // 社群連結：有了再填，會自動放進結構化資料 sameAs
+  // ⚠️ 這裡只放「醫師本人」的社群帳號，會進到 Person 的 sameAs。
+  // 診所的粉專／IG 請填在下面 clinics[].social，會進到該診所 MedicalClinic 的 sameAs；
+  // 填錯位置等於告訴搜尋引擎「醫師本人＝某間診所的粉專」。
   sameAs: [] as string[],
 };
 
@@ -70,6 +72,12 @@ export const clinics = [
       ["週五", "08:00–12:00", "", ""],
     ],
     booking: null as Booking,
+    social: [
+      {
+        label: "Facebook",
+        url: "https://www.facebook.com/p/%E9%95%B7%E5%AE%89%E5%85%A7%E7%A7%91%E8%A8%BA%E6%89%80-61555133626093/",
+      },
+    ],
     note: "",
   },
   {
@@ -97,6 +105,13 @@ export const clinics = [
       url: "https://line.me/R/ti/p/@280escrw",
       qr: "/line-booking-riri.svg",
     } as Booking,
+    social: [
+      {
+        label: "Facebook",
+        url: "https://www.facebook.com/p/%E6%97%A5%E6%97%A5%E6%99%B4%E8%81%AF%E5%90%88%E8%A8%BA%E6%89%80-%E8%A6%AA%E5%AD%90%E8%80%B3%E9%BC%BB%E5%96%89%E8%82%9D%E8%86%BD%E8%85%B8%E8%83%83%E5%B0%88%E7%A7%91-61577704497098/",
+      },
+      { label: "Instagram", url: "https://www.instagram.com/sunny_every_day269/" },
+    ],
     note: "週三與週五的下午診為 16:00–20:00 連續看診，中間不休診。",
   },
 ];

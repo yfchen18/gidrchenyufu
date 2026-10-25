@@ -103,6 +103,8 @@ export const clinicLd = (c: (typeof clinics)[number]) => {
       ? { geo: { "@type": "GeoCoordinates", latitude: c.geo.latitude, longitude: c.geo.longitude } }
       : {}),
     ...(c.mapUrl ? { hasMap: c.mapUrl } : {}),
+    // 診所自己的粉專／IG（不是醫師本人的，那個在 site.sameAs → Person）
+    ...(c.social.length ? { sameAs: c.social.map((s) => s.url) } : {}),
     ...(hours.length ? { openingHoursSpecification: hours } : {}),
     // 線上預約：讓搜尋引擎認得這是預約管道
     ...(c.booking

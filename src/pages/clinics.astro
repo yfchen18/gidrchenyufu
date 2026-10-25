@@ -24,6 +24,16 @@ const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&q
         地址：<a href={c.mapUrl ?? searchUrl(c.address)} target="_blank" rel="noopener">{c.address}</a><br />
         電話：<a href={`tel:${c.phone.replace(/-/g, "")}`}>{c.phone}</a>
       </p>
+      {c.social.length > 0 && (
+        <p class="social">
+          {c.social.map((s, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true"> · </span>}
+              <a href={s.url} target="_blank" rel="noopener">{s.label}</a>
+            </>
+          ))}
+        </p>
+      )}
       {c.booking && (
         <div class="booking">
           <a class="booking-btn" href={c.booking.url} target="_blank" rel="noopener">
@@ -59,6 +69,11 @@ const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&q
 <style>
   /* 線上預約：手機以可點擊的按鈕為主，QR 只在較寬的螢幕顯示
      （手機無法掃自己螢幕上的 QR） */
+  /* 診所的粉專／IG */
+  .social {
+    margin: -4px 0 14px;
+    font-size: 0.95rem;
+  }
   .booking {
     display: flex;
     align-items: center;
