@@ -22,20 +22,15 @@ const portraitUrl = new URL(portrait.src, site.url).href;
 >
   <h1>關於{site.doctorNameZh}醫師</h1>
 
-  <div class="intro">
-    <Image
-      class="portrait"
-      src={portrait}
-      alt={`${site.doctorNameZh}醫師`}
-      widths={[280, 560]}
-      sizes="(max-width: 639px) 200px, 280px"
-      loading="eager"
-    />
-    <div>
-      <p class="lead">{site.philosophy}</p>
-      <p class="muted">{site.training[0]}｜{site.credentials[0]}</p>
-    </div>
-  </div>
+  <Image
+    class="portrait"
+    src={portrait}
+    alt={`${site.doctorNameZh}醫師`}
+    widths={[280, 560]}
+    sizes="(max-width: 639px) 200px, 280px"
+    loading="eager"
+  />
+  <p class="lead">{site.philosophy}</p>
 
   <h2>專科資格與學會</h2>
   <ul>{site.credentials.map((c) => <li>{c}</li>)}</ul>
@@ -55,30 +50,19 @@ const portraitUrl = new URL(portrait.src, site.url).href;
 </Base>
 
 <style>
-  .intro {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-    margin: 0 0 8px;
-  }
-  .intro > div { flex: 1; }
-  .intro .lead { margin-top: 0; }
   .portrait {
+    display: block;
     width: 280px;
     height: auto;
-    flex: none;
+    margin: 0 0 18px;
     border-radius: var(--radius);
     border: 1px solid var(--line);
     background: var(--surface);
   }
   @media (max-width: 639px) {
-    .intro {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 16px;
+    .portrait {
+      width: 200px;
+      margin: 0 auto 16px;
     }
-    .intro .lead { text-align: center; }
-    .portrait { width: 200px; }
   }
 </style>
