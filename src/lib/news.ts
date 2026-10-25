@@ -1,4 +1,4 @@
-// 腸胃肝膽新知週報：讀取 src/content/news/*.md（排除 draft），新到舊排序
+// 胃腸肝膽新知週報：讀取 src/content/news/*.md（排除 draft），新到舊排序
 import { getCollection } from "astro:content";
 
 export const getNews = async () =>
@@ -6,4 +6,4 @@ export const getNews = async () =>
     (a, b) => b.data.published.localeCompare(a.data.published) || b.id.localeCompare(a.id)
   );
 
-export const newsTitle = "腸胃肝膽新知週報";
+export const newsTitle = "胃腸肝膽新知週報";

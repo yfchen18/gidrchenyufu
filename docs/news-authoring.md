@@ -1,4 +1,4 @@
-# 腸胃肝膽新知週報：撰寫規格
+# 胃腸肝膽新知週報：撰寫規格
 
 每週一新增一個 markdown 檔到 `src/content/news/`，push 到 `main` 後自動 build 並部署。
 網址：列表 `/news/`，單篇 `/news/<檔名>/`。範本：`src/content/news/2026-10-19-sample.md`（`draft: true`，不會發布）。
@@ -14,7 +14,7 @@
 
 | 欄位 | 型別 | 必填 | 說明／範例 |
 |---|---|---|---|
-| `title` | 字串 | ✅ | `"腸胃肝膽新知週報：GLP-1 與脂肪肝（2026/10/26）"` |
+| `title` | 字串 | ✅ | `"胃腸肝膽新知週報：GLP-1 與脂肪肝（2026/10/26）"` |
 | `description` | 字串 | ✅ | 一到兩句摘要，顯示在列表、首頁、搜尋結果與分享預覽 |
 | `published` | 日期 `YYYY-MM-DD` | ✅ | `2026-10-26` |
 | `reviewed` | 日期 `YYYY-MM-DD` | 選填 | 醫師最近審閱日；沒填自動等於 `published` |
@@ -28,7 +28,7 @@
 
 ```yaml
 ---
-title: "腸胃肝膽新知週報：本期標題"
+title: "胃腸肝膽新知週報：本期標題"
 description: "本期摘要。"
 published: 2026-10-26
 reviewed: 2026-10-26

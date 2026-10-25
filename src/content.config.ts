@@ -1,4 +1,4 @@
-// 內容集合設定。目前只有「腸胃肝膽新知週報」(news) 走 content collection；
+// 內容集合設定。目前只有「胃腸肝膽新知週報」(news) 走 content collection；
 // 衛教文章 (articles) 仍由 src/lib/articles.ts 直接讀取 markdown。
 // news 的欄位刻意與 articles 的 frontmatter 一致（見 src/lib/articles.ts 的 ArticleFrontmatter）。
 // 撰寫說明：docs/news-authoring.md
