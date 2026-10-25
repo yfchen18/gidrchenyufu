@@ -38,6 +38,11 @@ export const site = {
   sameAs: [] as string[],
 };
 
+// 線上預約：沒有就填 null。qr 是 public/ 底下的圖檔路徑。
+// ⚠️ 換了 url 要一併重新產生 QR 圖，兩者必須一致：
+//    npx -y qrcode@1.5.4 -t svg -e M -o public/<檔名>.svg "<url>"
+type Booking = { label: string; url: string; qr: string } | null;
+
 // 看診地點與門診時段。schedule 每列：[星期, 上午, 下午, 晚上]，空字串代表無門診。
 // mapUrl 選填：填了就用這個連結，沒填就以地址自動產生 Google 地圖搜尋連結。
 export const clinics = [
@@ -52,6 +57,7 @@ export const clinics = [
       ["週四", "", "14:30–18:00", "18:30–21:30"],
       ["週五", "08:00–12:00", "", ""],
     ],
+    booking: null as Booking,
     note: "",
   },
   {
@@ -65,6 +71,11 @@ export const clinics = [
       ["週五", "", "16:00–20:00", ""],
       ["週日", "08:00–12:00", "", ""],
     ],
+    booking: {
+      label: "LINE 線上預約",
+      url: "https://line.me/R/ti/p/@280escrw",
+      qr: "/line-booking-riri.svg",
+    } as Booking,
     note: "週三與週五的下午診為 16:00–20:00 連續看診，中間不休診。",
   },
 ];

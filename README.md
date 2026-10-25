@@ -9,6 +9,7 @@
 | 醫師姓名、資歷、理念、聯絡信箱 | `src/data/site.ts` |
 | 新增／調整主題（支柱頁） | `src/data/site.ts` 的 `pillars` |
 | 新增文章 | 在 `src/content/articles/` 新增一個 `.md` 檔 |
+| 線上預約連結與 QR | `src/data/site.ts` 的 `clinics[].booking`（見下） |
 | 顏色、字體 | `src/styles/global.css` |
 
 ## 新增文章
@@ -21,6 +22,18 @@
 - `faq`、`references`：選填，會自動產生常見問題區塊、參考文獻與結構化資料
 
 文章會自動出現在首頁、文章總覽、所屬主題頁，以及同主題文章的「延伸閱讀」。
+
+## 線上預約（LINE）
+
+每間診所在 `src/data/site.ts` 的 `booking` 欄位各自設定，沒有就填 `null`。
+看診資訊頁會在該診所區塊顯示一顆可點擊的按鈕；QR 只在寬度 560px 以上顯示
+（手機無法掃自己螢幕上的 QR，所以手機以按鈕為主）。
+
+⚠️ **換了 `url` 一定要重新產生 QR 圖**，兩者必須指向同一個網址：
+
+```bash
+npx -y qrcode@1.5.4 -t svg -e M -o public/line-booking-riri.svg "https://line.me/R/ti/p/@280escrw"
+```
 
 ## 本機預覽
 
