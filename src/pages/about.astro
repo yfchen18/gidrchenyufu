@@ -1,18 +1,41 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import { site } from "../data/site";
 import { physicianLd, breadcrumbLd } from "../lib/schema";
+import portrait from "../assets/chen-yufu.jpg";
+
+// 形象照同時給結構化資料用，讓搜尋引擎把這張臉和醫師本人綁在一起
+const portraitUrl = new URL(portrait.src, site.url).href;
 ---
 <Base
   title="關於醫師"
   description={`${site.doctorNameZh}醫師，台灣消化系醫學會專科醫師，前台北榮總胃腸肝膽科總醫師，專長胃腸內視鏡、肝膽疾病與代謝照護。`}
   jsonLd={[
-    { ...physicianLd, hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })) },
+    {
+      ...physicianLd,
+      image: portraitUrl,
+      hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })),
+    },
     breadcrumbLd([{ name: "首頁", path: "/" }, { name: "關於醫師", path: "/about/" }]),
   ]}
 >
   <h1>關於{site.doctorNameZh}醫師</h1>
-  <p class="lead">{site.philosophy}</p>
+
+  <div class="intro">
+    <Image
+      class="portrait"
+      src={portrait}
+      alt={`${site.doctorNameZh}醫師`}
+      widths={[280, 560]}
+      sizes="(max-width: 639px) 200px, 280px"
+      loading="eager"
+    />
+    <div>
+      <p class="lead">{site.philosophy}</p>
+      <p class="muted">{site.training[0]}｜{site.credentials[0]}</p>
+    </div>
+  </div>
 
   <h2>專科資格與學會</h2>
   <ul>{site.credentials.map((c) => <li>{c}</li>)}</ul>
@@ -30,3 +53,32 @@ import { physicianLd, breadcrumbLd } from "../lib/schema";
     幫助你在就醫前後做出更好的判斷。每篇文章都會標示參考文獻與最近審閱日期。
   </p>
 </Base>
+
+<style>
+  .intro {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    margin: 0 0 8px;
+  }
+  .intro > div { flex: 1; }
+  .intro .lead { margin-top: 0; }
+  .portrait {
+    width: 280px;
+    height: auto;
+    flex: none;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  @media (max-width: 639px) {
+    .intro {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    .intro .lead { text-align: center; }
+    .portrait { width: 200px; }
+  }
+</style>
