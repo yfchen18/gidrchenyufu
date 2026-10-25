@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
+import avatar from "../assets/chen-yufu-avatar.jpg";
 import { site, pillars } from "../data/site";
 import { articles } from "../lib/articles";
 import { physicianLd } from "../lib/schema";
@@ -88,7 +90,17 @@ const bySymptom: { symptom: string; links: { text: string; href: string }[] }[] 
 ---
 <Base jsonLd={[websiteLd, physicianLd]}>
   <section class="hero">
-    <h1>{site.doctorNameZh}醫師的胃腸肝膽衛教</h1>
+    <div class="hero-head">
+      <Image
+        class="avatar"
+        src={avatar}
+        alt={`${site.doctorNameZh}醫師`}
+        widths={[96, 192]}
+        sizes="96px"
+        loading="eager"
+      />
+      <h1>{site.doctorNameZh}醫師的胃腸肝膽衛教</h1>
+    </div>
     <p class="lead">
       火燒心、胃脹、血便、長期便秘、健檢肝指數異常——這些症狀該不該做胃鏡或大腸鏡？
       這裡用白話說明判斷依據與治療選擇，每篇由胃腸肝膽專科醫師撰寫，附參考文獻與最近審閱日期。
@@ -143,6 +155,28 @@ const bySymptom: { symptom: string; links: { text: string; href: string }[] }[] 
 </Base>
 
 <style>
+  /* 首頁標題旁的圓形頭像：給一點人味，但不擋入口文字 */
+  .hero-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-head h1 {
+    margin: 0;
+  }
+  .avatar {
+    width: 96px;
+    height: 96px;
+    flex: none;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  @media (max-width: 639px) {
+    .hero-head { gap: 13px; }
+    .avatar { width: 64px; height: 64px; }
+  }
   .symptoms {
     margin: 12px 0 18px;
     display: grid;
