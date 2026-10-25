@@ -164,6 +164,13 @@ export const pillars = [
       "痔瘡怎麼治、肛門為什麼痛、血便的顏色代表什麼：哪些可以先觀察，哪些一定要檢查。",
     keywords: ["痔瘡", "血便", "肛裂", "肛門痛", "橡皮圈結紮"],
   },
+  {
+    slug: "glp1",
+    title: "腸泌素藥物（減重針）",
+    summary:
+      "噁心、便秘、腹痛怎麼處理，哪些肚子痛要立刻就醫，以及做胃鏡大腸鏡前要不要停藥。",
+    keywords: ["腸泌素", "GLP-1", "減重針", "瘦瘦針", "semaglutide", "tirzepatide"],
+  },
 ] as const;
 
 export type PillarSlug = (typeof pillars)[number]["slug"];
