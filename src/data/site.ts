@@ -38,6 +38,23 @@ export const site = {
   sameAs: [] as string[],
 };
 
+// 分析與搜尋工具。三個欄位都是「填了才生效」，留空字串不會輸出任何程式碼，
+// 也不會載入任何第三方檔案。詳細申請步驟見 README。
+export const analytics = {
+  // Google Search Console 的 HTML 標籤驗證碼：只要 content="..." 引號裡那一串，
+  // 不要整個 <meta> 標籤。驗證通過後這一行要保留，拿掉會失去驗證。
+  googleSiteVerification: "",
+  // GA4 評估 ID，格式 G-XXXXXXXXXX
+  ga4MeasurementId: "",
+  // Cloudflare Web Analytics 的 token（在 Cloudflare 後台取得）
+  cloudflareToken: "",
+};
+
+// 有啟用任何會蒐集瀏覽資料的工具時，免責聲明頁會自動加上對應的隱私權說明。
+export const usesVisitorAnalytics = Boolean(
+  analytics.ga4MeasurementId || analytics.cloudflareToken,
+);
+
 // 看診地點與門診時段。schedule 每列：[星期, 上午, 下午, 晚上]，空字串代表無門診。
 export const clinics = [
   {
