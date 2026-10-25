@@ -83,6 +83,19 @@ npm install
 npm run dev
 ```
 
+### Node 版本
+
+Astro 會在啟動時檢查 Node 版本，**版本不符會直接拒絕執行，不是警告**。目前要求的下限由
+`package.json` 的 `engines.node` 記錄，實際釘住的版本放在 `.node-version` 與 `.nvmrc`
+（兩個檔案內容相同，Cloudflare 讀前者、nvm 讀後者）。
+
+```bash
+nvm use    # 會讀 .nvmrc
+```
+
+⚠️ **升級 astro 時要一起看它的 Node 需求。** Astro 的下限經常就是 Node 當下的最新一版，
+如果只升 astro 而沒有同步更新這兩個檔案，Cloudflare 的建置會在第一步就失敗。
+
 ## 部署（Cloudflare Workers & Pages）
 
 - Build command：`npm run build`
