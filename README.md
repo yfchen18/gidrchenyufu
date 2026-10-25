@@ -9,6 +9,7 @@
 | 醫師姓名、資歷、理念、聯絡信箱 | `src/data/site.ts` |
 | 新增／調整主題（支柱頁） | `src/data/site.ts` 的 `pillars` |
 | 新增文章 | 在 `src/content/articles/` 新增一個 `.md` 檔 |
+| 新增新知週報 | 在 `src/content/news/` 新增 `.md`，規格見 `docs/news-authoring.md` |
 | 線上預約連結與 QR | `src/data/site.ts` 的 `clinics[].booking`（見下） |
 | 顏色、字體 | `src/styles/global.css` |
 | 社群分享預覽圖的文字 | 改 `scripts/make-og.mjs` 再跑 `node scripts/make-og.mjs` |
