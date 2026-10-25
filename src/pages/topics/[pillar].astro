@@ -1,9 +1,10 @@
 ---
-// 支柱頁：每個主題一頁，自動列出所屬文章（叢集）。
-// 之後可在這裡為每個主題加上一篇完整的總覽內容。
+// 支柱頁：每個主題一頁，包含總覽正文（src/content/pillars/<slug>.md）與所屬文章列表。
+// 還沒寫正文的主題會自動退回只顯示文章列表。
 import Base from "../../layouts/Base.astro";
 import { pillars } from "../../data/site";
 import { articlesByPillar } from "../../lib/articles";
+import { pillarContent } from "../../lib/pillarContent";
 import { breadcrumbLd, physicianId } from "../../lib/schema";
 import { site } from "../../data/site";
 
@@ -13,27 +14,72 @@ export function getStaticPaths() {
 const { p } = Astro.props;
 const list = articlesByPillar(p.slug);
 const others = pillars.filter((x) => x.slug !== p.slug);
-const ld = [
+const body = pillarContent(p.slug);
+// 大寫變數名才會被當成元件渲染，和文章頁的 Content 用法一致
+const Body = body?.Content;
+
+const heading = body?.data.title ?? `${p.title}完整指南`;
+const description = body?.data.description ?? p.summary;
+
+const ld: object[] = [
   {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
-    name: p.title,
-    description: p.summary,
+    name: heading,
+    description,
     url: `${site.url}/topics/${p.slug}/`,
     inLanguage: "zh-TW",
     author: { "@id": physicianId },
     about: { "@type": "MedicalCondition", name: p.title },
+    ...(body
+      ? {
+          reviewedBy: { "@id": physicianId },
+          lastReviewed: body.data.reviewed,
+          dateModified: body.data.reviewed,
+        }
+      : {}),
   },
   breadcrumbLd([
     { name: "首頁", path: "/" },
     { name: p.title, path: `/topics/${p.slug}/` },
   ]),
 ];
+if (body?.data.faq?.length) {
+  ld.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: body.data.faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  });
+}
 ---
-<Base title={`${p.title}完整指南`} description={p.summary} jsonLd={ld}>
+<Base title={heading} description={description} jsonLd={ld}>
   <div class="crumbs"><a href="/">首頁</a> › {p.title}</div>
-  <h1>{p.title}</h1>
+  <h1>{heading}</h1>
+  {body ? (
+    <div class="meta">
+      <span>撰文：<a href="/about/">{site.doctorNameZh}醫師</a></span>
+      <span>最近審閱：<time datetime={body.data.reviewed}>{body.data.reviewed}</time></span>
+    </div>
+  ) : null}
   <p class="lead">{p.summary}</p>
+
+  {Body ? <Body /> : null}
+
+  {body?.data.faq?.length ? (
+    <section>
+      <h2>{p.title}常見問題</h2>
+      {body.data.faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </section>
+  ) : null}
 
   <h2>{p.title}相關文章</h2>
   {list.length ? (
@@ -58,4 +104,19 @@ const ld = [
       </a>
     ))}
   </div>
+
+  {body?.data.references?.length ? (
+    <section>
+      <h2>參考文獻</h2>
+      <ol class="refs">
+        {body.data.references.map((r) => (
+          <li>{r.url ? <a href={r.url} rel="noopener">{r.text}</a> : r.text}</li>
+        ))}
+      </ol>
+    </section>
+  ) : null}
+
+  {body ? (
+    <p class="muted">本文為一般衛教資訊，不能取代個別診療。症狀持續或有疑慮，請與您的醫師討論。</p>
+  ) : null}
 </Base>

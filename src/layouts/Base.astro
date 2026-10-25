@@ -1,5 +1,5 @@
 ---
-import { site } from "../data/site";
+import { site, analytics } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
@@ -49,6 +49,9 @@ const nav = [
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
+    {analytics.googleSiteVerification && (
+      <meta name="google-site-verification" content={analytics.googleSiteVerification} />
+    )}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content={ogType} />
@@ -69,6 +72,28 @@ const nav = [
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content={imageAlt} />
     {ld.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
+    {/* 分析工具只在正式建置時載入，本機 npm run dev 不會送出資料 */}
+    {import.meta.env.PROD && analytics.ga4MeasurementId && (
+      <>
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${analytics.ga4MeasurementId}`}
+        />
+        <script
+          is:inline
+          set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${analytics.ga4MeasurementId}');`}
+        />
+      </>
+    )}
+    {import.meta.env.PROD && analytics.cloudflareToken && (
+      <script
+        is:inline
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={`{"token": "${analytics.cloudflareToken}"}`}
+      />
+    )}
   </head>
   <body>
     <a class="skip" href="#main">跳到主要內容</a>

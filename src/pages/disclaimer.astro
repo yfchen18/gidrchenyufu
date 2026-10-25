@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { analytics, usesVisitorAnalytics } from "../data/site";
 ---
 <Base title="免責聲明" description="本網站衛教內容的使用說明與免責聲明。">
   <h1>免責聲明</h1>
@@ -7,4 +8,16 @@ import Base from "../layouts/Base.astro";
   <p>每個人的病史、用藥與檢查結果不同，適合的處置也不同。請勿僅依本網站內容自行停藥、換藥或延誤就醫。</p>
   <p>醫學知識持續更新，文章會標示最近審閱日期；若發現內容有誤，歡迎來信指正。</p>
   <p>本網站不刊登病人見證，也不提供療效保證。</p>
+
+  {usesVisitorAnalytics && (
+    <section>
+      <h2>隱私權與網站分析</h2>
+      <p>為了了解哪些衛教內容對民眾真正有幫助，本網站使用網站流量分析工具，蒐集的是彙總後的瀏覽統計資料，例如造訪了哪些頁面、從哪裡連進來、使用的裝置類型與大致的地區。</p>
+      <p>本網站<strong>沒有任何表單或會員功能，不會蒐集您的姓名、聯絡方式、病史或任何健康資訊</strong>。瀏覽紀錄不會與任何病歷連結，也不會用於醫療判斷。</p>
+      {analytics.ga4MeasurementId && (
+        <p>分析工具會在您的瀏覽器中存放 cookie 以辨識重複造訪。您可以透過瀏覽器設定封鎖或刪除 cookie，不影響本網站內容的閱讀。</p>
+      )}
+      <p>若您對本網站的資料處理方式有疑問，歡迎來信詢問。</p>
+    </section>
+  )}
 </Base>
