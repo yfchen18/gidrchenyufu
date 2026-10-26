@@ -90,23 +90,37 @@ const bySymptom: { symptom: string; links: { text: string; href: string }[] }[] 
 ];
 ---
 <Base jsonLd={[websiteLd, physicianLd]}>
-  <section class="hero">
-    <div class="hero-head">
+  <section class="cover">
+    <div class="cover-head">
       <Image
-        class="avatar"
+        class="cover-portrait"
         src={avatar}
         alt={`${site.doctorNameZh}醫師`}
-        widths={[96, 192]}
-        sizes="96px"
+        widths={[104, 208]}
+        sizes="104px"
         loading="eager"
       />
-      <h1>{site.doctorNameZh}醫師的胃腸肝膽衛教</h1>
+      <div>
+        <h1>{site.doctorNameZh}醫師的胃腸肝膽衛教</h1>
+        <p class="cover-role">胃腸肝膽專科 · 門診在桃園中壢與八德</p>
+      </div>
     </div>
-    <p class="lead">
+
+    <p class="cover-philosophy">{site.philosophy}</p>
+
+    <p class="cover-lead">
       火燒心、胃脹、血便、長期便秘、健檢肝指數異常——這些症狀該不該做胃鏡或大腸鏡？
       這裡用白話說明判斷依據與治療選擇，每篇由胃腸肝膽專科醫師撰寫，附參考文獻與最近審閱日期。
-      門診在桃園中壢與八德。
     </p>
+
+    <div class="cover-actions">
+      <a class="btn btn-primary" href="#symptoms">從症狀開始找</a>
+      <a class="btn btn-ghost" href="/clinics/">看診時間與地點</a>
+    </div>
+
+    <ul class="cover-credentials">
+      {site.credentials.map((c) => <li>{c}</li>)}
+    </ul>
   </section>
 
   {latestNews && (
@@ -129,7 +143,7 @@ const bySymptom: { symptom: string; links: { text: string; href: string }[] }[] 
     ))}
   </div>
 
-  <h2>從症狀開始找</h2>
+  <h2 id="symptoms">從症狀開始找</h2>
   <p>不確定自己的狀況屬於哪一類，可以從最困擾你的症狀往下看：</p>
   <dl class="symptoms">
     {bySymptom.map((s) => (
@@ -156,28 +170,6 @@ const bySymptom: { symptom: string; links: { text: string; href: string }[] }[] 
 </Base>
 
 <style>
-  /* 首頁標題旁的圓形頭像：給一點人味，但不擋入口文字 */
-  .hero-head {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .hero-head h1 {
-    margin: 0;
-  }
-  .avatar {
-    width: 96px;
-    height: 96px;
-    flex: none;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--line);
-    background: var(--surface);
-  }
-  @media (max-width: 639px) {
-    .hero-head { gap: 13px; }
-    .avatar { width: 64px; height: 64px; }
-  }
   .symptoms {
     margin: 12px 0 18px;
     display: grid;

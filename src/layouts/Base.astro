@@ -52,6 +52,14 @@ const nav = [
     {analytics.googleSiteVerification && (
       <meta name="google-site-verification" content={analytics.googleSiteVerification} />
     )}
+    {/* 標題用的襯線中文字型。只載 700 一個字重，Google Fonts 會依實際用到的字
+        做 unicode-range 切片，不會整套 CJK 下載。內文維持系統字。 */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap"
+    />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content={ogType} />
