@@ -72,16 +72,19 @@ type Booking = { label: string; url: string; qr: string } | null;
 export const clinics = [
   {
     id: "changan",
-    name: "中壢長安內科",
-    address: "桃園市中壢區中山東路二段550號",
+    name: "長安內科診所",
+    address: "桃園市中壢區中山東路二段550號1樓",
     region: "桃園市",
     locality: "中壢區",
-    street: "中山東路二段550號",
+    street: "中山東路二段550號1樓",
     postalCode: "320",
-    geo: undefined as { latitude: number; longitude: number } | undefined,
+    // 座標取自下方 mapUrl 的 Google 地圖地點（!3d／!4d）
+    geo: { latitude: 24.9465796, longitude: 121.2459483 } as
+      | { latitude: number; longitude: number }
+      | undefined,
     phone: "03-4650508",
     mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E5%AE%89%E5%85%A7%E7%A7%91%E8%A8%BA%E6%89%80%20%E6%A1%83%E5%9C%92%E5%B8%82%E4%B8%AD%E5%A3%A2%E5%8D%80%E4%B8%AD%E5%B1%B1%E6%9D%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5550%E8%99%9F",
+      "https://www.google.com/maps/place/%E9%95%B7%E5%AE%89%E5%85%A7%E7%A7%91%E8%A8%BA%E6%89%80/@24.9465796,121.2459483,17z/data=!3m1!4b1!4m6!3m5!1s0x346823053dcf3aa1:0xfa2773630c6010a5!8m2!3d24.9465796!4d121.2459483!16s%2Fg%2F11vrcj6_nb",
     schedule: [
       ["週二", "08:00–12:00", "14:30–18:00", ""],
       ["週四", "", "14:30–18:00", "18:30–21:30"],
