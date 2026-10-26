@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { getNews, newsTitle } from "../../lib/news";
-import { breadcrumbLd } from "../../lib/schema";
+import { breadcrumbLd, pageLd } from "../../lib/schema";
 
 const posts = await getNews();
 const description = "胃腸肝膽專科醫師每週整理的腸胃、肝膽最新研究與指引重點，附原始文獻。";
@@ -9,7 +9,10 @@ const description = "胃腸肝膽專科醫師每週整理的腸胃、肝膽最�
 <Base
   title={newsTitle}
   description={description}
-  jsonLd={breadcrumbLd([{ name: "首頁", path: "/" }, { name: newsTitle, path: "/news/" }])}
+  jsonLd={[
+    pageLd({ type: "CollectionPage", name: newsTitle, description, path: "/news/" }),
+    breadcrumbLd([{ name: "首頁", path: "/" }, { name: newsTitle, path: "/news/" }]),
+  ]}
 >
   <h1>{newsTitle}</h1>
   <p class="lead">{description}</p>

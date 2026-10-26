@@ -1,8 +1,18 @@
 ---
 import Base from "../layouts/Base.astro";
 import { site } from "../data/site";
+import { breadcrumbLd, pageLd } from "../lib/schema";
+
+const description = `聯絡${site.doctorNameZh}醫師：合作邀約、演講、媒體採訪。`;
 ---
-<Base title="聯絡" description={`聯絡${site.doctorNameZh}醫師：合作邀約、演講、媒體採訪。`}>
+<Base
+  title="聯絡"
+  description={description}
+  jsonLd={[
+    pageLd({ type: "ContactPage", name: "聯絡", description, path: "/contact/" }),
+    breadcrumbLd([{ name: "首頁", path: "/" }, { name: "聯絡", path: "/contact/" }]),
+  ]}
+>
   <h1>聯絡</h1>
   <p>演講邀約、媒體採訪、衛教合作，歡迎來信：</p>
   <p><a href={`mailto:${site.email}`}>{site.email}</a></p>

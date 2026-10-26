@@ -135,3 +135,31 @@ export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
     item: new URL(it.path, site.url).href,
   })),
 });
+
+// 網站本身的 @id（首頁的 WebSite 節點），其他頁面用 isPartOf 指回來，
+// 讓搜尋引擎知道這些頁面屬於同一個網站。
+export const websiteId = `${site.url}/#website`;
+
+// 頁面層級型別：告訴搜尋引擎「這一頁是什麼」，而不只是「這一頁提到了誰」。
+// Person、MedicalClinic 這類是實體，不是頁面型別；少了這一層，引擎得自己猜
+// 頁面主題，AI 也較難判斷哪一頁才是某個實體的權威頁面。
+// 文章頁與主題頁已經由 MedicalWebPage 擔任這個角色，不需要再加。
+type PageType = "WebPage" | "ProfilePage" | "ContactPage" | "CollectionPage";
+export const pageLd = (o: {
+  type: PageType;
+  name: string;
+  description: string;
+  path: string;
+  // 這一頁主要在講的實體，用 @id 指向同頁或他頁已經定義好的節點
+  mainEntity?: object | object[];
+}) => ({
+  "@context": "https://schema.org",
+  "@type": o.type,
+  "@id": `${new URL(o.path, site.url).href}#webpage`,
+  name: o.name,
+  description: o.description,
+  url: new URL(o.path, site.url).href,
+  inLanguage: site.locale,
+  isPartOf: { "@id": websiteId },
+  ...(o.mainEntity ? { mainEntity: o.mainEntity } : {}),
+});

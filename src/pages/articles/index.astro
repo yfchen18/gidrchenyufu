@@ -2,8 +2,18 @@
 import Base from "../../layouts/Base.astro";
 import { pillars } from "../../data/site";
 import { articlesByPillar } from "../../lib/articles";
+import { breadcrumbLd, pageLd } from "../../lib/schema";
+
+const description = "胃腸肝膽專科醫師撰寫的衛教文章總覽，依主題分類。";
 ---
-<Base title="衛教文章" description="胃腸肝膽專科醫師撰寫的衛教文章總覽，依主題分類。">
+<Base
+  title="衛教文章"
+  description={description}
+  jsonLd={[
+    pageLd({ type: "CollectionPage", name: "衛教文章", description, path: "/articles/" }),
+    breadcrumbLd([{ name: "首頁", path: "/" }, { name: "衛教文章", path: "/articles/" }]),
+  ]}
+>
   <h1>衛教文章</h1>
   {pillars.map((p) => {
     const list = articlesByPillar(p.slug);
