@@ -1,9 +1,17 @@
 ---
 import Base from "../layouts/Base.astro";
 import { site, clinics } from "../data/site";
-import { breadcrumbLd, clinicLd } from "../lib/schema";
+import { breadcrumbLd, clinicLd, clinicId, pageLd } from "../lib/schema";
 
+const description = `${site.doctorNameZh}醫師門診時間與看診地點：中壢長安內科診所、八德日日晴聯合診所。`;
 const ld = [
+  pageLd({
+    type: "WebPage",
+    name: "看診資訊",
+    description,
+    path: "/clinics/",
+    mainEntity: clinics.map((c) => ({ "@id": clinicId(c.id) })),
+  }),
   ...clinics.map(clinicLd),
   breadcrumbLd([{ name: "首頁", path: "/" }, { name: "看診資訊", path: "/clinics/" }]),
 ];
@@ -11,7 +19,7 @@ const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&q
 ---
 <Base
   title="看診資訊"
-  description={`${site.doctorNameZh}醫師門診時間與看診地點：中壢長安內科診所、八德日日晴聯合診所。`}
+  description={description}
   jsonLd={ld}
 >
   <h1>看診資訊</h1>

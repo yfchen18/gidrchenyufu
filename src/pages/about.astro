@@ -2,16 +2,24 @@
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import { site } from "../data/site";
-import { physicianLd, breadcrumbLd } from "../lib/schema";
+import { physicianLd, breadcrumbLd, pageLd, physicianId } from "../lib/schema";
 import portrait from "../assets/chen-yufu.jpg";
 
 // 形象照同時給結構化資料用，讓搜尋引擎把這張臉和醫師本人綁在一起
 const portraitUrl = new URL(portrait.src, site.url).href;
+const description = `${site.doctorNameZh}醫師，台灣消化系醫學會專科醫師，前台北榮總胃腸肝膽科總醫師，專長胃腸內視鏡、肝膽疾病與代謝照護。`;
 ---
 <Base
   title="關於醫師"
-  description={`${site.doctorNameZh}醫師，台灣消化系醫學會專科醫師，前台北榮總胃腸肝膽科總醫師，專長胃腸內視鏡、肝膽疾病與代謝照護。`}
+  description={description}
   jsonLd={[
+    pageLd({
+      type: "ProfilePage",
+      name: `關於${site.doctorNameZh}醫師`,
+      description,
+      path: "/about/",
+      mainEntity: { "@id": physicianId },
+    }),
     {
       ...physicianLd,
       image: portraitUrl,

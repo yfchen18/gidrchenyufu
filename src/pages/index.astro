@@ -4,12 +4,13 @@ import Base from "../layouts/Base.astro";
 import avatar from "../assets/chen-yufu-avatar.jpg";
 import { site, pillars } from "../data/site";
 import { articles } from "../lib/articles";
-import { physicianLd } from "../lib/schema";
+import { physicianLd, websiteId } from "../lib/schema";
 import { getNews, newsTitle } from "../lib/news";
 
 const websiteLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": websiteId,
   name: site.name,
   url: site.url,
   inLanguage: "zh-TW",
