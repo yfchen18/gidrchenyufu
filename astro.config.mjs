@@ -58,11 +58,16 @@ const trailingSlash301 = {
       const lines = [
         ...paths.filter(Boolean).map((p) => `/${p} /${p}/ 301`),
         ...paths.map((p) => (p ? `/${p}/index.html /${p}/ 301` : "/index.html / 301")),
+        // @astrojs/sitemap 產生的檔名是 sitemap-index.xml。Google 與 Bing 是讀
+        // robots.txt 的 Sitemap: 宣告（以及後台提交），不靠猜檔名，所以這兩行
+        // 不是必要的；但不少檢測工具與比較簡略的爬蟲只會試慣例路徑，補上成本很低。
+        "/sitemap.xml /sitemap-index.xml 301",
+        "/sitemap_index.xml /sitemap-index.xml 301",
       ];
       const out = fileURLToPath(new URL("_redirects", dir));
       writeFileSync(
         out,
-        `# 由 astro.config.mjs 自動產生：不帶結尾斜線的網址以 301 轉到帶斜線的正式網址\n${lines.join("\n")}\n`
+        `# 由 astro.config.mjs 自動產生：不帶結尾斜線的網址以 301 轉到帶斜線的正式網址，\n# 並把慣例的 sitemap 路徑轉到實際的 sitemap-index.xml\n${lines.join("\n")}\n`
       );
     },
   },
