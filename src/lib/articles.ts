@@ -6,6 +6,8 @@ export interface ArticleFrontmatter {
   published: string; // YYYY-MM-DD
   reviewed: string; // 醫師最近審閱日期 YYYY-MM-DD
   draft?: boolean;
+  // 要嵌入的互動小工具，目前只有 "fib4"。填了模板才會載入對應的 JS。
+  tool?: string;
   faq?: { q: string; a: string }[];
   references?: { text: string; url?: string }[];
 }

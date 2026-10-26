@@ -4,6 +4,8 @@ export interface PillarFrontmatter {
   title: string; // 支柱頁的 H1 與 <title>，寫成民眾會搜尋的長標題
   description: string; // meta description
   reviewed: string; // 醫師最近審閱日期 YYYY-MM-DD
+  // 要嵌入的互動小工具，目前只有 "fib4"。填了模板才會載入對應的 JS。
+  tool?: string;
   faq?: { q: string; a: string }[];
   references?: { text: string; url?: string }[];
 }

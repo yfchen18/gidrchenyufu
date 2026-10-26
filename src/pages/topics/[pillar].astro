@@ -69,6 +69,10 @@ if (body?.data.faq?.length) {
 
   {Body ? <Body /> : null}
 
+    {body?.data.tool === "fib4" && (
+      <script is:inline defer src="/tools/fib4.js"></script>
+    )}
+
   {body?.data.faq?.length ? (
     <section>
       <h2>{p.title}常見問題</h2>

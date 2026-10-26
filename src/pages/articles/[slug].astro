@@ -69,6 +69,10 @@ if (data.faq?.length) {
 
     <Content />
 
+    {data.tool === "fib4" && (
+      <script is:inline defer src="/tools/fib4.js"></script>
+    )}
+
     {data.faq?.length ? (
       <section>
         <h2>常見問題</h2>
