@@ -150,8 +150,7 @@ references:
 - 肚子**脹大**、腳踝水腫
 - 解**黑便**或吐血
 
-## 延伸閱讀
+## 其他相關主題
 
-- [B 肝帶原要多久追蹤一次？什麼時候需要開始吃藥](/articles/hbv-monitoring-and-treatment/)
 - [健檢肝指數 GOT、GPT 偏高，接下來要查什麼](/articles/elevated-liver-enzymes/)
 - [脂肪肝怎麼辦](/articles/fatty-liver-what-to-do/)

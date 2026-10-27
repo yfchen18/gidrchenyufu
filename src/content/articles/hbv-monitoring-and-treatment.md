@@ -199,7 +199,6 @@ references:
 
 B 肝主要經由血液與母嬰垂直傳染。建議家人檢驗表面抗原與抗體，**沒有抗體的人可以接種疫苗**。國健署提供 **45 到 79 歲（原住民 40 歲起）終身一次的免費 B、C 肝篩檢**。
 
-## 延伸閱讀
+## 其他相關主題
 
-- [為什麼 B 肝帶原要每半年做一次腹部超音波](/articles/hbv-liver-cancer-surveillance/)
 - [健檢肝指數 GOT、GPT 偏高，接下來要查什麼](/articles/elevated-liver-enzymes/)
