@@ -191,6 +191,13 @@ export const pillars = [
       "噁心、便秘、腹痛怎麼處理，哪些肚子痛要立刻就醫，以及做胃鏡大腸鏡前要不要停藥。",
     keywords: ["腸泌素", "GLP-1", "減重針", "瘦瘦針", "semaglutide", "tirzepatide"],
   },
+  {
+    slug: "viral-hepatitis",
+    title: "B 型與 C 型肝炎",
+    summary:
+      "帶原者要多久追蹤一次、什麼時候需要吃藥，以及為什麼每半年要做一次腹部超音波。",
+    keywords: ["B型肝炎", "B肝帶原", "C型肝炎", "肝癌監測", "抗病毒藥物"],
+  },
 ] as const;
 
 export type PillarSlug = (typeof pillars)[number]["slug"];
