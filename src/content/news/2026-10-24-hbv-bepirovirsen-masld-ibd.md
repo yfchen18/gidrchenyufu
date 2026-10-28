@@ -103,8 +103,6 @@ references:
 
 十月中下旬是消化科的會議旺季：美國胃腸醫學會年會 ACG 2026（Nashville）剛落幕，歐洲 UEG Week 2026 也在巴塞隆納結束（明年將移師哥本哈根）；肝臟科最重要的 AASLD The Liver Meeting（#TLM26）則將於 11 月 5–9 日在美國丹佛（Denver）登場。
 
-我從 10/18–10/24 這一週，X（Twitter）上 #GITwitter、#LiverTwitter 數百則國際醫師、期刊與學會的貼文中，挑出 5 個最值得認識的主題，並逐一回到原始論文、藥證公告或指引查證。
-
 ---
 
 ## B肝有機會停藥嗎？美國核准首個「功能性治癒」新藥 bepirovirsen
