@@ -2,6 +2,20 @@
 
 胃腸肝膽專科醫師個人衛教網站，使用 [Astro](https://astro.build) 建置的靜態網站，部署於 Cloudflare。
 
+## 用 Claude Code 寫內容
+
+這個 repo 附了 Claude Code 的工作流程設定，在這裡開 session 就會自動生效：
+
+| 檔案 | 內容 |
+|---|---|
+| `CLAUDE.md` | 寫稿規則（關聯不等於因果、台灣適用性）、查證流程、發布流程、環境的坑 |
+| `.claude/skills/news-weekly/` | 寫一期新知週報 |
+| `.claude/skills/health-article/` | 寫一篇衛教文章或開一個新主題 |
+| `.claude/skills/publish-and-index/` | build 驗證、推上線、送 Search Console |
+| `.claude/launch.json` | 本機預覽用的 dev server 設定 |
+
+直接說「寫一期週報」「這篇推上線」「送索引」就會走對應的流程。
+
 ## 常用修改
 
 | 想改什麼 | 改哪個檔案 |
