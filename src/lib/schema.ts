@@ -13,8 +13,10 @@ export const physicianLd = {
   "@type": "Person",
   "@id": physicianId,
   name: `${site.doctorNameZh}醫師`,
-  alternateName: site.doctorNameEn,
+  // 名字的各種寫法：本名、英文名（都已出現在站上，不要自行新增未經確認的拼法）
+  alternateName: [site.doctorNameZh, site.doctorNameEn],
   jobTitle: "胃腸肝膽專科醫師",
+  description: `${site.doctorNameZh}醫師（${site.doctorNameEn}），胃腸肝膽專科醫師，於桃園${clinics.map((c) => `${c.locality.replace(/區$/, "")}${c.name}`).join("、")}看診，專長胃鏡、大腸鏡等消化道內視鏡與肝膽疾病。`,
   url: `${site.url}/about/`,
   hasOccupation: {
     "@type": "Occupation",

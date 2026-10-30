@@ -5,6 +5,8 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  // 完整 <title>（不再自動加「｜陳昱甫醫師」），需要自訂標題格式時用
+  fullTitle?: string;
   description?: string;
   jsonLd?: object | object[];
   noindex?: boolean;
@@ -19,6 +21,7 @@ interface Props {
 }
 const {
   title,
+  fullTitle: fullTitleProp,
   description = site.description,
   jsonLd,
   noindex = false,
@@ -28,7 +31,7 @@ const {
   publishedTime,
   modifiedTime,
 } = Astro.props;
-const fullTitle = title ? `${title}｜${site.doctorNameZh}醫師` : site.homeTitle;
+const fullTitle = fullTitleProp ?? (title ? `${title}｜${site.doctorNameZh}醫師` : site.homeTitle);
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL(image, site.url).href;
 const isDefaultImage = image === "/og.jpg";

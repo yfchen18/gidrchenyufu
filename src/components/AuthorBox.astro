@@ -1,0 +1,30 @@
+---
+// 文章／週報結尾的作者欄：讓每一篇內容都清楚連回醫師本人（/about/）。
+import { Image } from "astro:assets";
+import { site, clinics } from "../data/site";
+import SocialLinks from "./SocialLinks.astro";
+import avatar from "../assets/chen-yufu-avatar.jpg";
+---
+<aside class="author-box" aria-label="關於作者">
+  <Image class="author-avatar" src={avatar} alt={`${site.doctorNameZh}醫師`} widths={[64, 128]} sizes="64px" loading="lazy" />
+  <div>
+    <p class="author-name"><a href="/about/">{site.doctorNameZh}醫師</a> <span class="muted">{site.doctorNameEn}</span></p>
+    <p class="author-role">{site.credentials[0]}・前{site.training[0]}</p>
+    <p class="author-clinics">
+      看診：{clinics.map((c, i) => (
+        <>{i > 0 && "、"}<a href={`/clinics/#${c.id}`}>{c.locality.replace(/區$/, "")}{c.name}</a></>
+      ))}
+    </p>
+    <p><a href="/about/">關於{site.doctorNameZh}醫師 →</a></p>
+    <SocialLinks />
+  </div>
+</aside>
+
+<style>
+  .author-box { display: flex; gap: 16px; align-items: flex-start; background: var(--accent-soft); border-radius: var(--radius); padding: 16px 18px; margin: 28px 0; font-size: 0.95rem; }
+  .author-box p { margin: 2px 0; }
+  .author-name { font-weight: 600; }
+  .author-name .muted { font-weight: 400; margin-left: 4px; }
+  .author-role { color: var(--muted); }
+  :global(.author-avatar) { flex: none; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+</style>

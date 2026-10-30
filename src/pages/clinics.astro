@@ -18,11 +18,11 @@ const ld = [
 const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`;
 ---
 <Base
-  title="看診資訊"
+  fullTitle={`${site.doctorNameZh}醫師看診資訊｜中壢長安內科・八德日日晴 門診時間`}
   description={description}
   jsonLd={ld}
 >
-  <h1>看診資訊</h1>
+  <h1>{site.doctorNameZh}醫師看診資訊</h1>
   <p class="lead">門診時間如有異動，以診所公告為準，出發前建議先來電確認。</p>
 
   {clinics.map((c) => (
@@ -61,6 +61,7 @@ const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&q
       )}
       {c.schedule.length ? (
         <table class="schedule">
+          <caption>{site.doctorNameZh}醫師在{c.name}的看診時段</caption>
           <thead><tr><th></th><th>上午</th><th>下午</th><th>晚上</th></tr></thead>
           <tbody>
             {c.schedule.map((row) => (
@@ -121,6 +122,7 @@ const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&q
     border-radius: 8px;
     padding: 6px;
   }
+  .schedule caption { caption-side: top; text-align: left; font-size: 0.9rem; color: var(--muted); padding: 0 0 6px; }
   .booking-qr figcaption {
     font-size: 0.8rem;
     color: var(--muted);
