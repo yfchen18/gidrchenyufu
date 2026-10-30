@@ -31,6 +31,12 @@ const searchUrl = (addr: string) => `https://www.google.com/maps/search/?api=1&q
       <p>
         地址：<a href={c.mapUrl ?? searchUrl(c.address)} target="_blank" rel="noopener">{c.address}</a><br />
         電話：<a href={`tel:${c.phone.replace(/-/g, "")}`}>{c.phone}</a>
+        {c.website && (
+          <>
+            <br />
+            診所官網：<a href={c.website} target="_blank" rel="noopener">{new URL(c.website).hostname.replace(/^www\./, "")}</a>
+          </>
+        )}
       </p>
       {c.social.length > 0 && (
         <p class="social">

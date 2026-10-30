@@ -84,12 +84,14 @@ const openingHours = (schedule: string[][]) =>
 // 看診地點的 MedicalClinic 結構化資料：只放 site.ts 裡有的真實資料
 export const clinicLd = (c: (typeof clinics)[number]) => {
   const hours = openingHours(c.schedule);
+  const sameAs = [...(c.website ? [c.website] : []), ...c.social.map((s) => s.url)];
   return {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
     "@id": clinicId(c.id),
     name: c.name,
-    url: clinicId(c.id),
+    // url：診所官網；@id 維持 /clinics/#id，Person.worksFor 以此對應
+    url: c.website ?? clinicId(c.id),
     telephone: c.phone,
     address: {
       "@type": "PostalAddress",
@@ -103,8 +105,8 @@ export const clinicLd = (c: (typeof clinics)[number]) => {
       ? { geo: { "@type": "GeoCoordinates", latitude: c.geo.latitude, longitude: c.geo.longitude } }
       : {}),
     ...(c.mapUrl ? { hasMap: c.mapUrl } : {}),
-    // 診所自己的粉專／IG（不是醫師本人的，那個在 site.sameAs → Person）
-    ...(c.social.length ? { sameAs: c.social.map((s) => s.url) } : {}),
+    // 診所官網＋診所自己的粉專／IG（不是醫師本人的，那個在 site.sameAs → Person）
+    ...(sameAs.length ? { sameAs } : {}),
     ...(hours.length ? { openingHoursSpecification: hours } : {}),
     // 線上預約：讓搜尋引擎認得這是預約管道
     ...(c.booking

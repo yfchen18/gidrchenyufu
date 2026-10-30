@@ -74,6 +74,7 @@ export const usesVisitorAnalytics = Boolean(
 type Booking = { label: string; url: string; qr: string } | null;
 
 // 看診地點與門診時段。schedule 每列：[星期, 上午, 下午, 晚上]，空字串代表無門診。
+// website：診所官網（選填，沒有就填 null），會顯示在 /clinics/ 並寫進 MedicalClinic 的 url 與 sameAs。
 // mapUrl 選填：填了就用這個連結，沒填就以地址自動產生 Google 地圖搜尋連結。
 // id：結構化資料 @id 與頁面錨點用（/clinics/#id），設定後請勿更改。
 // region／locality／street：地址拆欄，給結構化資料 PostalAddress 用，需與 address 一致。
@@ -91,6 +92,7 @@ export const clinics = [
     geo: { latitude: 24.9465796, longitude: 121.2459483 } as
       | { latitude: number; longitude: number }
       | undefined,
+    website: "https://www.changan550.com/" as string | null,
     phone: "03-4650508",
     mapUrl:
       "https://www.google.com/maps/place/%E9%95%B7%E5%AE%89%E5%85%A7%E7%A7%91%E8%A8%BA%E6%89%80/@24.9465796,121.2459483,17z/data=!3m1!4b1!4m6!3m5!1s0x346823053dcf3aa1:0xfa2773630c6010a5!8m2!3d24.9465796!4d121.2459483!16s%2Fg%2F11vrcj6_nb",
@@ -120,6 +122,7 @@ export const clinics = [
     geo: { latitude: 24.9321606, longitude: 121.2806876 } as
       | { latitude: number; longitude: number }
       | undefined,
+    website: "https://gi269-ent271.com/" as string | null,
     phone: "03-3688539",
     mapUrl:
       "https://www.google.com/maps/place/%E6%97%A5%E6%97%A5%E6%99%B4%E8%81%AF%E5%90%88%E8%A8%BA%E6%89%80/@24.9321606,121.2781127,17z/data=!3m1!4b1!4m6!3m5!1s0x3468195e8fb394ef:0x6b7010c07c449309!8m2!3d24.9321606!4d121.2806876!16s%2Fg%2F11xkpp4rqd",
