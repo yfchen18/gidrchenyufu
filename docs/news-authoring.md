@@ -66,14 +66,31 @@ references:
 | `/articles/anal-pain-and-fissure/` | 肛門痛不一定是痔瘡：肛裂、膿瘍與血栓痔怎麼分 | 痔瘡與血便 | `[肛門痛不一定是痔瘡：肛裂、膿瘍與血栓痔怎麼分](/articles/anal-pain-and-fissure/)` |
 | `/articles/chronic-constipation/` | 長期便秘怎麼處理？為什麼有些人吃瀉藥也沒用 | 腸躁症與便秘 | `[長期便秘怎麼處理？為什麼有些人吃瀉藥也沒用](/articles/chronic-constipation/)` |
 | `/articles/colonoscopy-bowel-prep/` | 大腸鏡清腸藥怎麼喝才會乾淨？時間表與低渣飲食全解析 | 胃鏡與大腸鏡檢查 | `[大腸鏡清腸藥怎麼喝才會乾淨？時間表與低渣飲食全解析](/articles/colonoscopy-bowel-prep/)` |
+| `/articles/diabetes-liver-fibrosis-screening/` | 有糖尿病，為什麼醫師要幫你檢查肝纖維化？ | 脂肪肝（MASLD） | `[有糖尿病，為什麼醫師要幫你檢查肝纖維化？](/articles/diabetes-liver-fibrosis-screening/)` |
 | `/articles/elevated-liver-enzymes/` | 健檢肝指數 GOT、GPT 偏高，接下來要查什麼？ | 脂肪肝（MASLD） | `[健檢肝指數 GOT、GPT 偏高，接下來要查什麼？](/articles/elevated-liver-enzymes/)` |
 | `/articles/endoscopy-blood-thinners/` | 在吃阿斯匹靈或抗凝血藥，做胃鏡、大腸鏡要停藥嗎？ | 胃鏡與大腸鏡檢查 | `[在吃阿斯匹靈或抗凝血藥，做胃鏡、大腸鏡要停藥嗎？](/articles/endoscopy-blood-thinners/)` |
 | `/articles/endoscopy-sedation/` | 無痛胃鏡、無痛大腸鏡安全嗎？麻醉前你該知道的事 | 胃鏡與大腸鏡檢查 | `[無痛胃鏡、無痛大腸鏡安全嗎？麻醉前你該知道的事](/articles/endoscopy-sedation/)` |
+| `/articles/fatty-liver-glp1-treatment/` | 脂肪肝可以打減重針嗎？腸泌素藥物治療 MASH 的現況 | 脂肪肝（MASLD） | `[脂肪肝可以打減重針嗎？腸泌素藥物治療 MASH 的現況](/articles/fatty-liver-glp1-treatment/)` |
+| `/articles/fatty-liver-how-to-reverse/` | 脂肪肝怎麼逆轉？要減幾公斤才真的有效 | 脂肪肝（MASLD） | `[脂肪肝怎麼逆轉？要減幾公斤才真的有效](/articles/fatty-liver-how-to-reverse/)` |
+| `/articles/fatty-liver-ultrasound-report/` | 超音波報告寫「脂肪肝」，嚴重嗎？報告怎麼看 | 脂肪肝（MASLD） | `[超音波報告寫「脂肪肝」，嚴重嗎？報告怎麼看](/articles/fatty-liver-ultrasound-report/)` |
 | `/articles/fatty-liver-what-to-do/` | 超音波說我有脂肪肝，要擔心嗎？該做哪些檢查 | 脂肪肝（MASLD） | `[超音波說我有脂肪肝，要擔心嗎？該做哪些檢查](/articles/fatty-liver-what-to-do/)` |
 | `/articles/fit-positive-what-next/` | 糞便潛血檢查陽性，一定要做大腸鏡嗎？ | 大腸癌篩檢與大腸鏡 | `[糞便潛血檢查陽性，一定要做大腸鏡嗎？](/articles/fit-positive-what-next/)` |
+| `/articles/gerd-diet-and-lifestyle/` | 胃食道逆流該怎麼吃、怎麼睡？有證據的生活調整 | 胃食道逆流 | `[胃食道逆流該怎麼吃、怎麼睡？有證據的生活調整](/articles/gerd-diet-and-lifestyle/)` |
+| `/articles/gerd-ppi-how-to-take/` | 胃食道逆流的藥怎麼吃才有效？PPI 的正確吃法與停藥 | 胃食道逆流 | `[胃食道逆流的藥怎麼吃才有效？PPI 的正確吃法與停藥](/articles/gerd-ppi-how-to-take/)` |
 | `/articles/gerd-symptoms-and-treatment/` | 胃食道逆流怎麼治？從症狀、吃藥到什麼時候該做胃鏡 | 胃食道逆流 | `[胃食道逆流怎麼治？從症狀、吃藥到什麼時候該做胃鏡](/articles/gerd-symptoms-and-treatment/)` |
+| `/articles/gerd-when-to-get-endoscopy/` | 火燒心、喉嚨卡卡，什麼時候該做胃鏡？ | 胃食道逆流 | `[火燒心、喉嚨卡卡，什麼時候該做胃鏡？](/articles/gerd-when-to-get-endoscopy/)` |
+| `/articles/glp1-before-endoscopy/` | 打減重針期間要做胃鏡、大腸鏡，需要停藥嗎？ | 腸泌素藥物（減重針） | `[打減重針期間要做胃鏡、大腸鏡，需要停藥嗎？](/articles/glp1-before-endoscopy/)` |
+| `/articles/glp1-diet-protein/` | 打猛健樂期間怎麼吃？蛋白質、進食順序與保住肌肉的方法 | 腸泌素藥物（減重針） | `[打猛健樂期間怎麼吃？蛋白質、進食順序與保住肌肉的方法](/articles/glp1-diet-protein/)` |
+| `/articles/glp1-gallbladder-pancreas/` | 打減重針肚子痛，什麼時候要擔心膽結石與胰臟炎？ | 腸泌素藥物（減重針） | `[打減重針肚子痛，什麼時候要擔心膽結石與胰臟炎？](/articles/glp1-gallbladder-pancreas/)` |
+| `/articles/glp1-gi-side-effects/` | 打減重針後噁心、便秘、腹瀉怎麼辦？腸泌素藥物的腸胃副作用 | 腸泌素藥物（減重針） | `[打減重針後噁心、便秘、腹瀉怎麼辦？腸泌素藥物的腸胃副作用](/articles/glp1-gi-side-effects/)` |
+| `/articles/glp1-how-much-weight-loss/` | 打減重針會瘦多少？停藥之後會復胖嗎？ | 腸泌素藥物（減重針） | `[打減重針會瘦多少？停藥之後會復胖嗎？](/articles/glp1-how-much-weight-loss/)` |
+| `/articles/glp1-which-drug-to-choose/` | 猛健樂與週纖達差在哪？兩種減重針怎麼選 | 腸泌素藥物（減重針） | `[猛健樂與週纖達差在哪？兩種減重針怎麼選](/articles/glp1-which-drug-to-choose/)` |
+| `/articles/glp1-who-should-not-use/` | 哪些人不適合打減重針？禁忌症與要特別小心的狀況 | 腸泌素藥物（減重針） | `[哪些人不適合打減重針？禁忌症與要特別小心的狀況](/articles/glp1-who-should-not-use/)` |
 | `/articles/h-pylori-eradication-and-retest/` | 幽門桿菌除菌藥怎麼吃？副作用、複驗時間與失敗了怎麼辦 | 幽門桿菌 | `[幽門桿菌除菌藥怎麼吃？副作用、複驗時間與失敗了怎麼辦](/articles/h-pylori-eradication-and-retest/)` |
 | `/articles/h-pylori-should-i-treat/` | 驗出幽門桿菌，一定要除菌嗎？ | 幽門桿菌 | `[驗出幽門桿菌，一定要除菌嗎？](/articles/h-pylori-should-i-treat/)` |
+| `/articles/hbv-liver-cancer-surveillance/` | 為什麼 B 肝帶原要每半年做一次腹部超音波 | B 型與 C 型肝炎 | `[為什麼 B 肝帶原要每半年做一次腹部超音波](/articles/hbv-liver-cancer-surveillance/)` |
+| `/articles/hbv-monitoring-and-treatment/` | B 肝帶原要多久追蹤一次？什麼時候需要開始吃藥 | B 型與 C 型肝炎 | `[B 肝帶原要多久追蹤一次？什麼時候需要開始吃藥](/articles/hbv-monitoring-and-treatment/)` |
+| `/articles/hcv-treatment-and-cure/` | C 型肝炎現在可以治癒了：口服 8 到 12 週，治癒率超過 95% | B 型與 C 型肝炎 | `[C 型肝炎現在可以治癒了：口服 8 到 12 週，治癒率超過 95%](/articles/hcv-treatment-and-cure/)` |
 | `/articles/hemorrhoids-treatment/` | 痔瘡怎麼治？從分級、保守治療到橡皮圈結紮與手術 | 痔瘡與血便 | `[痔瘡怎麼治？從分級、保守治療到橡皮圈結紮與手術](/articles/hemorrhoids-treatment/)` |
 | `/articles/ibs-what-is-it/` | 腸躁症：檢查都正常，肚子還是痛又拉，該怎麼辦？ | 腸躁症與便秘 | `[腸躁症：檢查都正常，肚子還是痛又拉，該怎麼辦？](/articles/ibs-what-is-it/)` |
 | `/articles/lpr-throat-symptoms/` | 喉嚨卡卡、一直清喉嚨、聲音沙啞，是咽喉逆流嗎？ | 胃食道逆流 | `[喉嚨卡卡、一直清喉嚨、聲音沙啞，是咽喉逆流嗎？](/articles/lpr-throat-symptoms/)` |
@@ -91,6 +108,8 @@ references:
 | `/topics/ibs-constipation/` | 腸躁症與便秘 | `[腸躁症與便秘](/topics/ibs-constipation/)` |
 | `/topics/endoscopy/` | 胃鏡與大腸鏡檢查 | `[胃鏡與大腸鏡檢查](/topics/endoscopy/)` |
 | `/topics/hemorrhoids-bleeding/` | 痔瘡與血便 | `[痔瘡與血便](/topics/hemorrhoids-bleeding/)` |
+| `/topics/glp1/` | 腸泌素藥物（減重針） | `[腸泌素藥物（減重針）](/topics/glp1/)` |
+| `/topics/viral-hepatitis/` | B 型與 C 型肝炎 | `[B 型與 C 型肝炎](/topics/viral-hepatitis/)` |
 
 其他：`/articles/`（文章總覽）、`/news/`（週報列表）、`/clinics/`（看診資訊）、`/about/`（關於醫師）。
 
