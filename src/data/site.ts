@@ -41,8 +41,16 @@ export const site = {
   // ⚠️ 這裡只放「醫師本人」的社群帳號，會進到 Person 的 sameAs。
   // 診所的粉專／IG 請填在下面 clinics[].social，會進到該診所 MedicalClinic 的 sameAs；
   // 填錯位置等於告訴搜尋引擎「醫師本人＝某間診所的粉專」。
+  // 醫師本人的社群帳號：頁尾、/about/、/contact/ 的連結都由這裡產生。
+  // id 對應 src/components/SocialLinks.astro 裡的圖示。
+  social: [
+    { id: "instagram", label: "Instagram", url: "https://www.instagram.com/gidrchenyufu/" },
+    { id: "threads", label: "Threads", url: "https://www.threads.com/@gidrchenyufu" },
+  ] as { id: "instagram" | "threads"; label: string; url: string }[],
   sameAs: [] as string[],
 };
+// Person 的 sameAs 自動帶入上面的醫師社群帳號（不含診所粉專）
+site.sameAs = site.social.map((s) => s.url);
 
 // 分析與搜尋工具。三個欄位都是「填了才生效」，留空字串不會輸出任何程式碼，
 // 也不會載入任何第三方檔案。詳細申請步驟見 README。

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 import { site } from "../data/site";
 import { physicianLd, breadcrumbLd, pageLd, physicianId } from "../lib/schema";
 import portrait from "../assets/chen-yufu.jpg";
@@ -49,6 +50,10 @@ const description = `${site.doctorNameZh}醫師，台灣消化系醫學會專科
   <h2>專長</h2>
   <ul>{site.expertise.map((e) => <li>{e}</li>)}</ul>
   <p><a href="/clinics/">門診時間與看診地點 →</a></p>
+
+  <h2>追蹤我</h2>
+  <p>在 Instagram 與 Threads 追蹤我：</p>
+  <SocialLinks variant="list" />
 
   <h2>關於這個網站</h2>
   <p>

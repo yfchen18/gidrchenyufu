@@ -193,3 +193,11 @@ th { background: var(--accent-soft); }
 .fib4-high .fib4-band, .fib4-high .fib4-num { color: var(--bad); }
 .fib4-bad { border-color: var(--bad); }
 .fib4-bad .fib4-empty { color: var(--bad); }
+
+/* 醫師社群連結（SocialLinks.astro） */
+.social-links { list-style: none; padding: 0; margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.social-links li { margin: 0; }
+.social-links a { display: inline-flex; align-items: center; gap: 6px; }
+.social-links svg { flex: none; }
+.social-links--list a { color: var(--ink); }
+.social-links--list .social-handle { color: var(--muted); font-size: 0.9em; }
