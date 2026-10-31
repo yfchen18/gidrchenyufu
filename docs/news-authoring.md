@@ -84,6 +84,7 @@ references:
 | `/articles/glp1-gallbladder-pancreas/` | 打減重針肚子痛，什麼時候要擔心膽結石與胰臟炎？ | 腸泌素藥物（減重針） | `[打減重針肚子痛，什麼時候要擔心膽結石與胰臟炎？](/articles/glp1-gallbladder-pancreas/)` |
 | `/articles/glp1-gi-side-effects/` | 打減重針後噁心、便秘、腹瀉怎麼辦？腸泌素藥物的腸胃副作用 | 腸泌素藥物（減重針） | `[打減重針後噁心、便秘、腹瀉怎麼辦？腸泌素藥物的腸胃副作用](/articles/glp1-gi-side-effects/)` |
 | `/articles/glp1-how-much-weight-loss/` | 打減重針會瘦多少？停藥之後會復胖嗎？ | 腸泌素藥物（減重針） | `[打減重針會瘦多少？停藥之後會復胖嗎？](/articles/glp1-how-much-weight-loss/)` |
+| `/articles/glp1-plateau-and-how-long/` | 減重針打多久才看到最大效果？平台期不代表沒效 | 腸泌素藥物（減重針） | `[減重針打多久才看到最大效果？平台期不代表沒效](/articles/glp1-plateau-and-how-long/)` |
 | `/articles/glp1-which-drug-to-choose/` | 猛健樂與週纖達差在哪？兩種減重針怎麼選 | 腸泌素藥物（減重針） | `[猛健樂與週纖達差在哪？兩種減重針怎麼選](/articles/glp1-which-drug-to-choose/)` |
 | `/articles/glp1-who-should-not-use/` | 哪些人不適合打減重針？禁忌症與要特別小心的狀況 | 腸泌素藥物（減重針） | `[哪些人不適合打減重針？禁忌症與要特別小心的狀況](/articles/glp1-who-should-not-use/)` |
 | `/articles/h-pylori-eradication-and-retest/` | 幽門桿菌除菌藥怎麼吃？副作用、複驗時間與失敗了怎麼辦 | 幽門桿菌 | `[幽門桿菌除菌藥怎麼吃？副作用、複驗時間與失敗了怎麼辦](/articles/h-pylori-eradication-and-retest/)` |
@@ -94,8 +95,12 @@ references:
 | `/articles/hemorrhoids-treatment/` | 痔瘡怎麼治？從分級、保守治療到橡皮圈結紮與手術 | 痔瘡與血便 | `[痔瘡怎麼治？從分級、保守治療到橡皮圈結紮與手術](/articles/hemorrhoids-treatment/)` |
 | `/articles/ibs-what-is-it/` | 腸躁症：檢查都正常，肚子還是痛又拉，該怎麼辦？ | 腸躁症與便秘 | `[腸躁症：檢查都正常，肚子還是痛又拉，該怎麼辦？](/articles/ibs-what-is-it/)` |
 | `/articles/lpr-throat-symptoms/` | 喉嚨卡卡、一直清喉嚨、聲音沙啞，是咽喉逆流嗎？ | 胃食道逆流 | `[喉嚨卡卡、一直清喉嚨、聲音沙啞，是咽喉逆流嗎？](/articles/lpr-throat-symptoms/)` |
+| `/articles/metabolically-healthy-obesity/` | BMI 一樣，健康卻差很多：什麼是「代謝健康型肥胖」 | 脂肪肝（MASLD） | `[BMI 一樣，健康卻差很多：什麼是「代謝健康型肥胖」](/articles/metabolically-healthy-obesity/)` |
 | `/articles/polyp-surveillance-interval/` | 大腸鏡切了瘜肉，下一次要多久後再做？ | 大腸癌篩檢與大腸鏡 | `[大腸鏡切了瘜肉，下一次要多久後再做？](/articles/polyp-surveillance-interval/)` |
 | `/articles/rectal-bleeding-what-to-do/` | 大便有血怎麼辦？從顏色看可能原因，哪些要馬上就醫 | 痔瘡與血便 | `[大便有血怎麼辦？從顏色看可能原因，哪些要馬上就醫](/articles/rectal-bleeding-what-to-do/)` |
+| `/articles/sleep-apnea-and-weight/` | 打呼、白天嗜睡跟體重有關嗎？睡眠呼吸中止症與減重藥的新證據 | 腸泌素藥物（減重針） | `[打呼、白天嗜睡跟體重有關嗎？睡眠呼吸中止症與減重藥的新證據](/articles/sleep-apnea-and-weight/)` |
+| `/articles/weight-loss-drugs-in-east-asians/` | 亞洲人打減重針效果比較差嗎？東亞試驗數據與台灣的肥胖標準 | 腸泌素藥物（減重針） | `[亞洲人打減重針效果比較差嗎？東亞試驗數據與台灣的肥胖標準](/articles/weight-loss-drugs-in-east-asians/)` |
+| `/articles/weight-loss-drugs-older-adults/` | 長輩或體力較差的人能用減重藥嗎？衰弱分析與保住肌肉的方法 | 腸泌素藥物（減重針） | `[長輩或體力較差的人能用減重藥嗎？衰弱分析與保住肌肉的方法](/articles/weight-loss-drugs-older-adults/)` |
 
 ### 主題頁（皆可連結）
 
