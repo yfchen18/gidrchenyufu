@@ -1,0 +1,31 @@
+# HTTP 安全標頭。Cloudflare Workers 靜態資源會讀這個檔：
+# https://developers.cloudflare.com/workers/static-assets/headers/
+#
+# 這個站是純靜態檔案，沒有後端、表單、登入或資料庫，所以下面大多屬於
+# 縱深防禦。真正最大的風險是 GitHub／Cloudflare 帳號本身，那要靠雙因素
+# 驗證，不是靠標頭。
+#
+# ⚠️ 之後若在文章裡嵌入外部內容（YouTube、外部圖片、新的追蹤碼），
+#    CSP 會直接擋掉而且不會報錯，記得同步更新下面的白名單。
+
+/*
+  # 強制 HTTPS 一年。Cloudflare 會自動發憑證，子網域一併涵蓋。
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+  # 不要讓瀏覽器猜測檔案型別
+  X-Content-Type-Options: nosniff
+
+  # 不准任何網站把本站嵌進 iframe（避免被包裝成別人的內容）
+  X-Frame-Options: DENY
+
+  # 跨站連出時只送來源網域，不送完整路徑——不讓外部網站知道讀者看的是
+  # 哪一篇衛教文章。現代瀏覽器預設已是如此，這裡明文寫出以涵蓋舊版。
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # 本站不需要這些裝置權限
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+  # style-src 保留 unsafe-inline：Astro 會把元件的小型 scoped CSS 內嵌進頁面，
+  # 關掉會犧牲首次繪製速度，而純靜態站沒有注入 CSS 的管道，取捨後保留。
+  # script-src 不含 unsafe-inline——站上已無任何可執行的內嵌 script。
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests
