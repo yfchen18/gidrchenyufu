@@ -1,0 +1,47 @@
+---
+// 醫師本人的社群連結（資料來自 site.social）。
+// variant="footer"：頁尾的小圖示＋文字；variant="list"：內文用的列表。
+import { site } from "../data/site";
+
+interface Props {
+  variant?: "footer" | "list";
+}
+const { variant = "footer" } = Astro.props;
+
+const icons: Record<string, string> = {
+  instagram:
+    '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+  threads:
+    '<path d="M16.5 11.2c-.3-2.4-1.9-3.7-4.3-3.7-2.6 0-4.2 1.7-4.2 4.5s1.6 4.6 4.3 4.6c2.2 0 3.8-1.2 3.8-3 0-1.9-1.8-2.7-4-2.6-1.6.1-2.6.9-2.6 1.9 0 1 .9 1.6 2 1.6 2.4 0 3.3-2.3 2.9-5.3"/><path d="M19.5 7.5C18.2 4.6 15.6 3 12.2 3 6.9 3 4 6.6 4 12s2.9 9 8.2 9c4.4 0 7.6-2.5 7.6-5.9 0-1.6-.6-2.9-1.8-3.8"/>',
+};
+---
+{site.social.length > 0 && (
+  <ul class:list={["social-links", `social-links--${variant}`]}>
+    {site.social.map((s) => (
+      <li>
+        <a
+          href={s.url}
+          target="_blank"
+          rel="me noopener"
+          aria-label={`${site.doctorNameZh}醫師的 ${s.label}（另開新視窗）`}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+            set:html={icons[s.id]}
+          />
+          <span>{s.label}</span>
+          {variant === "list" && <span class="social-handle">@{s.url.replace(/\/$/, "").split("/").pop()!.replace(/^@/, "")}</span>}
+        </a>
+      </li>
+    ))}
+  </ul>
+)}

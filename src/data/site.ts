@@ -16,18 +16,24 @@ export const site = {
   email: "contact@gidrchenyufu.com",
   locale: "zh-TW",
   // 專科資格與學會
+  // 來源：本站原有資料，並與兩間診所官網「醫療團隊」頁的醫師介紹核對
+  // （changan550.com/paper/other_page.php?id=21153、gi269-ent271.com/paper/other_page.php?id=21081）。
+  // 只放有出處的項目；學歷、證書字號等尚未提供，不要自行補。
   credentials: [
     "台灣消化系醫學會專科醫師",
+    "台灣內科醫學會專科醫師",
     "台灣消化系內視鏡醫學會會員",
-    "糖尿病共同照護網認證醫師",
+    "台北市衛生局糖尿病共同照護網認證醫師",
     "台灣肥胖醫學會會員",
   ],
-  // 訓練經歷
+  // 經歷（來源同上）
   training: [
     "台北榮民總醫院胃腸肝膽科總醫師",
     "台北榮民總醫院內科部住院醫師",
-    "日本埼玉醫科大學國際醫療中心研修醫師",
+    "日本埼玉醫科大學國際醫療中心內視鏡中心研修醫師",
   ],
+  // 一句話專科定位：/about/ 標題、文章作者欄共用（與 IG／Threads 自介「胃腸肝膽專科｜內視鏡專科」一致）
+  specialty: "胃腸肝膽專科・內視鏡",
   // 專長（來自門診主治項目）
   expertise: [
     "胃潰瘍、胃食道逆流、消化不良、脹氣與便秘",
@@ -41,8 +47,16 @@ export const site = {
   // ⚠️ 這裡只放「醫師本人」的社群帳號，會進到 Person 的 sameAs。
   // 診所的粉專／IG 請填在下面 clinics[].social，會進到該診所 MedicalClinic 的 sameAs；
   // 填錯位置等於告訴搜尋引擎「醫師本人＝某間診所的粉專」。
+  // 醫師本人的社群帳號：頁尾、/about/、/contact/ 的連結都由這裡產生。
+  // id 對應 src/components/SocialLinks.astro 裡的圖示。
+  social: [
+    { id: "instagram", label: "Instagram", url: "https://www.instagram.com/gidrchenyufu/" },
+    { id: "threads", label: "Threads", url: "https://www.threads.com/@gidrchenyufu" },
+  ] as { id: "instagram" | "threads"; label: string; url: string }[],
   sameAs: [] as string[],
 };
+// Person 的 sameAs 自動帶入上面的醫師社群帳號（不含診所粉專）
+site.sameAs = site.social.map((s) => s.url);
 
 // 分析與搜尋工具。三個欄位都是「填了才生效」，留空字串不會輸出任何程式碼，
 // 也不會載入任何第三方檔案。詳細申請步驟見 README。
@@ -66,6 +80,7 @@ export const usesVisitorAnalytics = Boolean(
 type Booking = { label: string; url: string; qr: string } | null;
 
 // 看診地點與門診時段。schedule 每列：[星期, 上午, 下午, 晚上]，空字串代表無門診。
+// website：診所官網（選填，沒有就填 null），會顯示在 /clinics/ 並寫進 MedicalClinic 的 url 與 sameAs。
 // mapUrl 選填：填了就用這個連結，沒填就以地址自動產生 Google 地圖搜尋連結。
 // id：結構化資料 @id 與頁面錨點用（/clinics/#id），設定後請勿更改。
 // region／locality／street：地址拆欄，給結構化資料 PostalAddress 用，需與 address 一致。
@@ -83,6 +98,7 @@ export const clinics = [
     geo: { latitude: 24.9465796, longitude: 121.2459483 } as
       | { latitude: number; longitude: number }
       | undefined,
+    website: "https://www.changan550.com/" as string | null,
     phone: "03-4650508",
     mapUrl:
       "https://www.google.com/maps/place/%E9%95%B7%E5%AE%89%E5%85%A7%E7%A7%91%E8%A8%BA%E6%89%80/@24.9465796,121.2459483,17z/data=!3m1!4b1!4m6!3m5!1s0x346823053dcf3aa1:0xfa2773630c6010a5!8m2!3d24.9465796!4d121.2459483!16s%2Fg%2F11vrcj6_nb",
@@ -112,6 +128,7 @@ export const clinics = [
     geo: { latitude: 24.9321606, longitude: 121.2806876 } as
       | { latitude: number; longitude: number }
       | undefined,
+    website: "https://gi269-ent271.com/" as string | null,
     phone: "03-3688539",
     mapUrl:
       "https://www.google.com/maps/place/%E6%97%A5%E6%97%A5%E6%99%B4%E8%81%AF%E5%90%88%E8%A8%BA%E6%89%80/@24.9321606,121.2781127,17z/data=!3m1!4b1!4m6!3m5!1s0x3468195e8fb394ef:0x6b7010c07c449309!8m2!3d24.9321606!4d121.2806876!16s%2Fg%2F11xkpp4rqd",

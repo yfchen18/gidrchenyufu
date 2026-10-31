@@ -1,4 +1,5 @@
 ---
+import AuthorBox from "../../components/AuthorBox.astro";
 import Base from "../../layouts/Base.astro";
 import { articles, articlesByPillar } from "../../lib/articles";
 import { pillars, site } from "../../data/site";
@@ -63,7 +64,7 @@ if (data.faq?.length) {
     </div>
     <h1>{data.title}</h1>
     <div class="meta">
-      <span>撰文：<a href="/about/">{site.doctorNameZh}醫師</a></span>
+      <span>撰文・審閱：<a href="/about/" rel="author">{site.doctorNameZh}醫師</a></span>
       <span>最近審閱：<time datetime={data.reviewed}>{data.reviewed}</time></span>
     </div>
 
@@ -112,5 +113,6 @@ if (data.faq?.length) {
     ) : null}
 
     <p class="muted">本文為一般衛教資訊，不能取代個別診療。症狀持續或有疑慮，請與您的醫師討論。</p>
+    <AuthorBox />
   </article>
 </Base>

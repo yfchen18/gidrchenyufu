@@ -1,21 +1,23 @@
 ---
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
-import { site } from "../data/site";
+import SocialLinks from "../components/SocialLinks.astro";
+import { site, clinics } from "../data/site";
 import { physicianLd, breadcrumbLd, pageLd, physicianId } from "../lib/schema";
 import portrait from "../assets/chen-yufu.jpg";
 
 // 形象照同時給結構化資料用，讓搜尋引擎把這張臉和醫師本人綁在一起
 const portraitUrl = new URL(portrait.src, site.url).href;
-const description = `${site.doctorNameZh}醫師，台灣消化系醫學會專科醫師，前台北榮總胃腸肝膽科總醫師，專長胃腸內視鏡、肝膽疾病與代謝照護。`;
+const description = `${site.doctorNameZh}醫師，胃腸肝膽專科醫師、前台北榮總胃腸肝膽科總醫師，在桃園中壢、八德看診，專長胃鏡、大腸鏡、肝膽疾病與代謝照護。`;
+const pageTitle = `${site.doctorNameZh}醫師｜${site.specialty}`;
 ---
 <Base
-  title="關於醫師"
+  fullTitle={pageTitle}
   description={description}
   jsonLd={[
     pageLd({
       type: "ProfilePage",
-      name: `關於${site.doctorNameZh}醫師`,
+      name: pageTitle,
       description,
       path: "/about/",
       mainEntity: { "@id": physicianId },
@@ -23,7 +25,13 @@ const description = `${site.doctorNameZh}醫師，台灣消化系醫學會專科
     {
       ...physicianLd,
       image: portraitUrl,
-      hasCredential: site.credentials.map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })),
+      // 專科醫師／認證醫師 → hasCredential；學會「會員」不是證照 → memberOf
+      hasCredential: site.credentials
+        .filter((c) => !c.endsWith("會員"))
+        .map((c) => ({ "@type": "EducationalOccupationalCredential", name: c })),
+      memberOf: site.credentials
+        .filter((c) => c.endsWith("會員"))
+        .map((c) => ({ "@type": "Organization", name: c.replace(/會員$/, "") })),
     },
     breadcrumbLd([{ name: "首頁", path: "/" }, { name: "關於醫師", path: "/about/" }]),
   ]}
@@ -40,15 +48,21 @@ const description = `${site.doctorNameZh}醫師，台灣消化系醫學會專科
   />
   <p class="lead">{site.philosophy}</p>
 
-  <h2>專科資格與學會</h2>
+  <p>{site.doctorNameZh}醫師（{site.doctorNameEn}）是胃腸肝膽專科醫師，目前在桃園{clinics.map((c, i) => (<>{i > 0 && "與"}<a href={`/clinics/#${c.id}`}>{c.locality.replace(/區$/, "")}{c.name}</a></>))}看診，專長胃鏡、大腸鏡等消化道內視鏡，胃食道逆流、幽門桿菌、腸躁症與便秘，脂肪肝與 B、C 型肝炎等肝膽疾病，以及糖尿病、三高與體重管理等代謝照護。門診時段請見<a href="/clinics/">看診資訊</a>。</p>
+
+  <h2>專科證照與學會</h2>
   <ul>{site.credentials.map((c) => <li>{c}</li>)}</ul>
 
-  <h2>訓練經歷</h2>
+  <h2>經歷</h2>
   <ul>{site.training.map((e) => <li>{e}</li>)}</ul>
 
   <h2>專長</h2>
   <ul>{site.expertise.map((e) => <li>{e}</li>)}</ul>
   <p><a href="/clinics/">門診時間與看診地點 →</a></p>
+
+  <h2>追蹤我</h2>
+  <p>在 Instagram 與 Threads 追蹤我：</p>
+  <SocialLinks variant="list" />
 
   <h2>關於這個網站</h2>
   <p>

@@ -13,8 +13,10 @@ export const physicianLd = {
   "@type": "Person",
   "@id": physicianId,
   name: `${site.doctorNameZh}醫師`,
-  alternateName: site.doctorNameEn,
+  // 名字的各種寫法：本名、英文名（都已出現在站上，不要自行新增未經確認的拼法）
+  alternateName: [site.doctorNameZh, site.doctorNameEn],
   jobTitle: "胃腸肝膽專科醫師",
+  description: `${site.doctorNameZh}醫師（${site.doctorNameEn}），胃腸肝膽專科醫師，於桃園${clinics.map((c) => `${c.locality.replace(/區$/, "")}${c.name}`).join("、")}看診，專長胃鏡、大腸鏡等消化道內視鏡與肝膽疾病。`,
   url: `${site.url}/about/`,
   hasOccupation: {
     "@type": "Occupation",
@@ -84,12 +86,14 @@ const openingHours = (schedule: string[][]) =>
 // 看診地點的 MedicalClinic 結構化資料：只放 site.ts 裡有的真實資料
 export const clinicLd = (c: (typeof clinics)[number]) => {
   const hours = openingHours(c.schedule);
+  const sameAs = [...(c.website ? [c.website] : []), ...c.social.map((s) => s.url)];
   return {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
     "@id": clinicId(c.id),
     name: c.name,
-    url: clinicId(c.id),
+    // url：診所官網；@id 維持 /clinics/#id，Person.worksFor 以此對應
+    url: c.website ?? clinicId(c.id),
     telephone: c.phone,
     address: {
       "@type": "PostalAddress",
@@ -103,8 +107,8 @@ export const clinicLd = (c: (typeof clinics)[number]) => {
       ? { geo: { "@type": "GeoCoordinates", latitude: c.geo.latitude, longitude: c.geo.longitude } }
       : {}),
     ...(c.mapUrl ? { hasMap: c.mapUrl } : {}),
-    // 診所自己的粉專／IG（不是醫師本人的，那個在 site.sameAs → Person）
-    ...(c.social.length ? { sameAs: c.social.map((s) => s.url) } : {}),
+    // 診所官網＋診所自己的粉專／IG（不是醫師本人的，那個在 site.sameAs → Person）
+    ...(sameAs.length ? { sameAs } : {}),
     ...(hours.length ? { openingHoursSpecification: hours } : {}),
     // 線上預約：讓搜尋引擎認得這是預約管道
     ...(c.booking
