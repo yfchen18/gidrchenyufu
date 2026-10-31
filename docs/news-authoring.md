@@ -98,7 +98,7 @@ references:
 | `/articles/metabolically-healthy-obesity/` | BMI 一樣，健康卻差很多：什麼是「代謝健康型肥胖」 | 脂肪肝（MASLD） | `[BMI 一樣，健康卻差很多：什麼是「代謝健康型肥胖」](/articles/metabolically-healthy-obesity/)` |
 | `/articles/polyp-surveillance-interval/` | 大腸鏡切了瘜肉，下一次要多久後再做？ | 大腸癌篩檢與大腸鏡 | `[大腸鏡切了瘜肉，下一次要多久後再做？](/articles/polyp-surveillance-interval/)` |
 | `/articles/rectal-bleeding-what-to-do/` | 大便有血怎麼辦？從顏色看可能原因，哪些要馬上就醫 | 痔瘡與血便 | `[大便有血怎麼辦？從顏色看可能原因，哪些要馬上就醫](/articles/rectal-bleeding-what-to-do/)` |
-| `/articles/sleep-apnea-and-weight/` | 打呼、白天嗜睡跟體重有關嗎？睡眠呼吸中止症與減重藥的新證據 | 腸泌素藥物（減重針） | `[打呼、白天嗜睡跟體重有關嗎？睡眠呼吸中止症與減重藥的新證據](/articles/sleep-apnea-and-weight/)` |
+| `/articles/sleep-apnea-and-weight/` | 睡眠呼吸中止症和體重有關嗎？打呼、白天嗜睡與減重藥 | 腸泌素藥物（減重針） | `[睡眠呼吸中止症和體重有關嗎？打呼、白天嗜睡與減重藥](/articles/sleep-apnea-and-weight/)` |
 | `/articles/weight-loss-drugs-in-east-asians/` | 亞洲人打減重針效果比較差嗎？東亞試驗數據與台灣的肥胖標準 | 腸泌素藥物（減重針） | `[亞洲人打減重針效果比較差嗎？東亞試驗數據與台灣的肥胖標準](/articles/weight-loss-drugs-in-east-asians/)` |
 | `/articles/weight-loss-drugs-older-adults/` | 長輩或體力較差的人能用減重藥嗎？衰弱分析與保住肌肉的方法 | 腸泌素藥物（減重針） | `[長輩或體力較差的人能用減重藥嗎？衰弱分析與保住肌肉的方法](/articles/weight-loss-drugs-older-adults/)` |
 
