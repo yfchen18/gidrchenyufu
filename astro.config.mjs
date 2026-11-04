@@ -73,6 +73,24 @@ const trailingSlash301 = {
   },
 };
 
+// ---- 預覽部署不給搜尋引擎收錄 ----
+// Cloudflare Workers Builds 會帶入 WORKERS_CI_BRANCH。非 main 分支的建置（PR 預覽）
+// 在 dist/_headers 對所有頁面加上 X-Robots-Tag: noindex，避免預覽網址被當成重複站收錄。
+// main 的正式建置與本機建置都不會產生這個檔案，正式站行為不變。
+const previewNoindex = {
+  name: "preview-noindex-header",
+  hooks: {
+    "astro:build:done": ({ dir }) => {
+      const branch = process.env.WORKERS_CI_BRANCH;
+      if (!branch || branch === "main") return;
+      writeFileSync(
+        fileURLToPath(new URL("_headers", dir)),
+        `# 由 astro.config.mjs 自動產生：預覽建置（分支 ${branch}）不給搜尋引擎收錄\n/*\n  X-Robots-Tag: noindex, nofollow\n`
+      );
+    },
+  },
+};
+
 export default defineConfig({
   site: SITE,
   trailingSlash: "always",
@@ -85,5 +103,6 @@ export default defineConfig({
       },
     }),
     trailingSlash301,
+    previewNoindex,
   ],
 });

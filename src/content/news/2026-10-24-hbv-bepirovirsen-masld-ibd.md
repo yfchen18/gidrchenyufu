@@ -18,9 +18,6 @@ keywords:
   - "潰瘍性結腸炎"
   - "克隆氏症"
   - "糞便鈣衛蛋白"
-  - "大腸癌 腸阻塞"
-  - "大腸支架"
-  - "人工肛門"
   - "機器人大腸鏡"
   - "大腸鏡"
   - "AI 大腸鏡"
@@ -36,8 +33,6 @@ faq:
     a: "2024 年 JAMA 一項 80 人、6 個月的小型試驗顯示，低劑量阿斯匹靈可減少肝臟脂肪，但未證明能減少肝硬化、肝癌或死亡。阿斯匹靈有出血風險，請勿自行服用。"
   - q: "發炎性腸道疾病症狀好了，還需要追蹤嗎？"
     a: "需要。STRIDE-III 指出，治療目標還包括 CRP 正常、糞便鈣衛蛋白（<200 µg/g）與內視鏡緩解，並建議長期約每 3–4 個月監測。"
-  - q: "大腸癌造成腸阻塞，一定要做人工肛門嗎？"
-    a: "不一定。ESGE 指引建議，無穿孔的惡性大腸阻塞若以緩解症狀為目標，大腸金屬支架是首選；可根治的左側大腸癌也可以討論以支架過渡到手術。支架有穿孔等風險，需由醫療團隊評估。"
 references:
   - text: "美國 FDA 新聞稿（2026/10/20）"
     url: "https://www.fda.gov/news-events/press-announcements/fda-approves-first-its-kind-chronic-hepatitis-b-treatment"
@@ -79,10 +74,6 @@ references:
     url: "https://x.com/AlmomaniMD/status/2113326047143874700"
   - text: "X：@HealioGastro"
     url: "https://x.com/HealioGastro/status/2112923078233645327"
-  - text: "van Hooft JE, et al. ESGE Guideline – Update 2020. Endoscopy 2020;52:389–407"
-    url: "https://www.esge.com/assets/downloads/pdfs/guidelines/2020_a_1140_3017.pdf"
-  - text: "X：@DouglasAdlerMD"
-    url: "https://x.com/DouglasAdlerMD/status/2113075455188422890"
   - text: "CARE study（GIE, DDW 2026 abstract 979b）"
     url: "https://www.giejournal.org/article/S0016-5107(26)06679-4/abstract"
   - text: "MIMS"
@@ -237,31 +228,6 @@ ACG 2026 上也公布了口服 IL-23 受體阻斷胜肽 **icotrokinra** 的第 2
 達到臨床緩解的患者中，97% 不需使用類固醇，85–87% 仍持續用藥，整體未見新的安全訊號（其中有 1 例乳房原位癌，DCIS）。需要留意的是：分析採用 nonresponder imputation、並未做統計檢定，延伸期族群也經過篩選，仍需進行中的第三期試驗進一步確認。icotrokinra 在美國已於 2026 年 3 月核准用於乾癬（Icotyde），但**UC 適應症目前尚未核准**。
 
 對病友來說，重點是：症狀好轉，不等於發炎已經完全控制。疲倦、生活品質受影響同樣是正式的治療目標，記得在門診主動告訴醫師。
-
----
-
-## 大腸癌腸阻塞一定要做人工肛門嗎？內視鏡大腸支架是什麼？
-
-這週 #GITwitter 互動最高的貼文（超過 1,200 個讚），來自美國治療性內視鏡專家 Douglas Adler 醫師。根據他的分享，一位轉移性大腸癌病人出現惡性大腸阻塞，外科原本已會診準備做大腸造口（人工肛門），最後改以**內視鏡置放大腸金屬支架**成功解除阻塞，讓病人免於開刀。
-
-大腸癌長大後可能把腸道堵住，出現**腹脹、腹痛、嘔吐、無法排便排氣**等症狀，這屬於急症，應立即就醫。
-
-### 支架適合誰？
-
-在部分情況下，醫師可以透過內視鏡在阻塞處放入可撐開的金屬支架（SEMS），將腸道撐開。歐洲消化內視鏡學會（ESGE）2020 年指引的重點如下：
-
-- **適用條件**：有臨床症狀且影像證實的惡性大腸阻塞，**沒有穿孔徵象**；不建議預防性放置（strong, low quality）。
-- **以緩解症狀為目標的病人**：建議支架為**首選**（strong, high quality）。
-- **仍可能根治的左側大腸癌**：支架可作為「過渡到手術的橋樑（bridge to surgery）」，應與急診切除一起在共同決策下討論（strong, high quality）。支架到手術建議間隔約 2 週（weak, low quality）。
-- **近端大腸阻塞**：可考慮支架（weak, low quality）。
-- **抗血管新生藥物**：不建議在病人正接受 bevacizumab 等抗血管新生治療時放支架；支架後則可考慮使用（皆為 weak, low quality）。支架後化療視為安全。
-- 操作者應同時具備大腸鏡與透視技術能力。
-
-支架也有其風險，例如腸穿孔、移位或再次阻塞。是否適合使用，需要消化內科、大腸直腸外科與腫瘤科團隊共同評估；個案分享畢竟無法看到完整病歷，也不能取代指引與團隊的專業判斷。
-
-最根本的做法，還是在腫瘤還小、尚未造成阻塞前就發現它。台灣有公費糞便潛血檢查，符合資格的民眾請定期篩檢，若結果為陽性，務必接受大腸鏡檢查。
-
-延伸閱讀：[糞便潛血檢查陽性，一定要做大腸鏡嗎？](/articles/fit-positive-what-next/)
 
 ---
 

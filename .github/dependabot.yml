@@ -1,0 +1,22 @@
+# 相依套件更新：每月一個「合併成一包」的 PR。
+#
+# 這個站只有 2 個直接相依，但間接拉進 260 幾個套件。設計成低雜訊是刻意的：
+# 每個 PR 都會觸發一次 Cloudflare 預覽建置，而免費方案只有 1 個併發名額，
+# 曾因此塞住部署佇列。每月一包＝一年 12 個 PR、12 次建置。
+#
+# ⚠️ 這個檔案只管「例行版本更新」。真正的「已知安全漏洞通知」是 repo 設定，
+#    不在這裡：Settings → Code security → 開啟 Dependabot alerts 與
+#    Dependabot security updates。那兩個開關只有 repo 擁有者能開。
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    # 全部更新合併成一個 PR，而不是每個套件一個
+    groups:
+      npm-dependencies:
+        patterns: ["*"]
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "deps"
