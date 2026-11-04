@@ -49,10 +49,28 @@ export const site = {
   // 填錯位置等於告訴搜尋引擎「醫師本人＝某間診所的粉專」。
   // 醫師本人的社群帳號：頁尾、/about/、/contact/ 的連結都由這裡產生。
   // id 對應 src/components/SocialLinks.astro 裡的圖示。
+  // 醫師本人的社群（不是診所的，診所的在下面 clinics[].social）。
+  // handle 選填：list 版會顯示成 @handle；沒有帳號代稱的就不填（例如 Facebook
+  // 的數字型 profile.php 網址，硬推會變成 @profile.php?id=...）。
   social: [
-    { id: "instagram", label: "Instagram", url: "https://www.instagram.com/gidrchenyufu/" },
-    { id: "threads", label: "Threads", url: "https://www.threads.com/@gidrchenyufu" },
-  ] as { id: "instagram" | "threads"; label: string; url: string }[],
+    {
+      id: "facebook",
+      label: "Facebook",
+      url: "https://www.facebook.com/profile.php?id=61596298823964",
+    },
+    {
+      id: "instagram",
+      label: "Instagram",
+      url: "https://www.instagram.com/gidrchenyufu/",
+      handle: "gidrchenyufu",
+    },
+    {
+      id: "threads",
+      label: "Threads",
+      url: "https://www.threads.com/@gidrchenyufu",
+      handle: "gidrchenyufu",
+    },
+  ] as { id: "facebook" | "instagram" | "threads"; label: string; url: string; handle?: string }[],
   sameAs: [] as string[],
 };
 // Person 的 sameAs 自動帶入上面的醫師社群帳號（不含診所粉專）
