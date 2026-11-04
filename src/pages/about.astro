@@ -61,7 +61,7 @@ const pageTitle = `${site.doctorNameZh}醫師｜${site.specialty}`;
   <p><a href="/clinics/">門診時間與看診地點 →</a></p>
 
   <h2>追蹤我</h2>
-  <p>在 Instagram 與 Threads 追蹤我：</p>
+  <p>在 {site.social.map((s) => s.label).join("、")} 追蹤我：</p>
   <SocialLinks variant="list" />
 
   <h2>關於這個網站</h2>
