@@ -74,6 +74,7 @@ references:
 | `/articles/fatty-liver-how-to-reverse/` | 脂肪肝怎麼逆轉？要減幾公斤才真的有效 | 脂肪肝（MASLD） | `[脂肪肝怎麼逆轉？要減幾公斤才真的有效](/articles/fatty-liver-how-to-reverse/)` |
 | `/articles/fatty-liver-ultrasound-report/` | 超音波報告寫「脂肪肝」，嚴重嗎？報告怎麼看 | 脂肪肝（MASLD） | `[超音波報告寫「脂肪肝」，嚴重嗎？報告怎麼看](/articles/fatty-liver-ultrasound-report/)` |
 | `/articles/fatty-liver-what-to-do/` | 超音波說我有脂肪肝，要擔心嗎？該做哪些檢查 | 脂肪肝（MASLD） | `[超音波說我有脂肪肝，要擔心嗎？該做哪些檢查](/articles/fatty-liver-what-to-do/)` |
+| `/articles/fit-negative-colorectal-cancer/` | 糞便潛血陰性，就沒有大腸癌嗎？這些情況仍要就醫 | 大腸癌篩檢與大腸鏡 | `[糞便潛血陰性，就沒有大腸癌嗎？這些情況仍要就醫](/articles/fit-negative-colorectal-cancer/)` |
 | `/articles/fit-positive-what-next/` | 糞便潛血檢查陽性，一定要做大腸鏡嗎？ | 大腸癌篩檢與大腸鏡 | `[糞便潛血檢查陽性，一定要做大腸鏡嗎？](/articles/fit-positive-what-next/)` |
 | `/articles/gerd-diet-and-lifestyle/` | 胃食道逆流該怎麼吃、怎麼睡？有證據的生活調整 | 胃食道逆流 | `[胃食道逆流該怎麼吃、怎麼睡？有證據的生活調整](/articles/gerd-diet-and-lifestyle/)` |
 | `/articles/gerd-ppi-how-to-take/` | 胃食道逆流的藥怎麼吃才有效？PPI 的正確吃法與停藥 | 胃食道逆流 | `[胃食道逆流的藥怎麼吃才有效？PPI 的正確吃法與停藥](/articles/gerd-ppi-how-to-take/)` |
