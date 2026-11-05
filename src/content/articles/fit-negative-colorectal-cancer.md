@@ -1,23 +1,32 @@
 ---
-title: 糞便潛血陰性，就沒有大腸癌嗎？
-description: 糞便潛血檢查陰性不代表沒有大腸癌。本文說明 FIT 是什麼、為何會偽陰性、ACG 2026 男女敏感度差異、陰性時仍應就醫的警訊，以及定期篩檢時該和醫師討論的重點。
+title: 糞便潛血陰性，就沒有大腸癌嗎？這些情況仍要就醫
+description: 糞便潛血陰性不等於沒有大腸癌。這篇說明為什麼有癌症卻驗不出來、研究中女性的偵測率為何低於男性，以及陰性時出現哪些症狀仍要就醫。
 pillar: colon-screening
 published: 2026-11-05
 reviewed: 2026-11-05
 faq:
   - q: 糞便潛血檢查陰性，就代表沒有大腸癌嗎？
     a: 不一定。糞便潛血檢查（FIT）是篩檢工具，會有漏失。即使結果陰性，若出現血便、排便習慣改變、不明原因體重減輕或貧血，仍應就醫，不要只依賴單次陰性結果。
+  - q: 糞便潛血陰性，還需要做大腸鏡嗎？
+    a: 多數沒有症狀、風險一般的人，陰性後依建議定期篩檢即可，不需要立刻安排大腸鏡。但若出現血便、排便習慣改變、不明原因體重減輕或貧血，或本身有大腸癌家族史，醫師可能會建議直接做大腸鏡，而不以這次的陰性結果作為排除依據。是否需要，請由醫師依年齡、家族史與症狀評估。
+  - q: 糞便潛血檢查驗得出大腸瘜肉嗎？
+    a: 敏感度比驗大腸癌低很多。在 ACG 2026 的那項分析中，同一閾值下進行性癌前病變的偵測率男性約 25.8%、女性約 20.2%，遠低於大腸癌的 77.4% 與 62.0%。原因是這項檢查偵測的是糞便中的血紅素，比較擅長抓已經在出血的病灶；尚未明顯出血的瘜肉本來就不容易驗到。這也是為什麼篩檢需要定期重複做。
   - q: 研究說女性比較容易漏掉大腸癌，女性還要做 FIT 嗎？
     a: 要。ACG 2026 一項分析發現，在同一陽性閾值下，女性大腸癌偵測敏感度低於男性，但研究只用一種廠牌、一種閾值，不能直接套用所有檢驗。規律重複篩檢仍比單次結果更重要；陽性則一定要做大腸鏡。
   - q: 陰性之後還需要注意什麼？
     a: 符合資格請依建議定期篩檢。出現血便、排便習慣改變、不明原因體重減輕或貧血時，不論最近一次 FIT 是陰性或陽性，都應儘快與醫師討論是否需要進一步檢查。
 references:
-  - text: "HCPLive：FIT Misses More CRCs in Women; Could Sex-Specific Thresholds Help?（ACG 2026）"
-    url: "https://www.hcplive.com/view/fit-misses-more-crcs-in-women-could-sex-specific-thresholds-help-"
-  - text: "Healio：Sex-specific FIT thresholds could equalize CRC detection"
-    url: "https://www.healio.com/news/gastroenterology/20261016/equal-colorectal-cancer-detection-may-require-different-fit-thresholds-for-men-women"
-  - text: "Medscape：Fecal Colorectal Cancer Test Accuracy Differs by Gender"
-    url: "https://www.medscape.com/viewarticle/fecal-colorectal-cancer-test-accuracy-differs-gender-2026a10013e3"
+  - text: "Imperiale TF, Porter K, Limburg P. Performance characteristics of fecal immunochemical tests in males and females: should the threshold vary? American College of Gastroenterology 2026 Annual Scientific Meeting; 2026 Oct 9–14; Nashville, TN.（年會發表，尚未見正式論文）"
+  - text: "Imperiale TF, Ransohoff DF, Itzkowitz SH, et al. Multitarget stool DNA testing for colorectal-cancer screening. N Engl J Med. 2014;370(14):1287-97.（DeeP-C 試驗，上述分析的資料來源之一）"
+    url: https://doi.org/10.1056/NEJMoa1311194
+  - text: "Imperiale TF, Porter K, Zella J, et al. Next-Generation Multitarget Stool DNA Test for Colorectal Cancer Screening. N Engl J Med. 2024;390(11):984-993.（BLUE-C 試驗，上述分析的資料來源之一）"
+    url: https://doi.org/10.1056/NEJMoa2310336
+  - text: "HCPLive：FIT Misses More CRCs in Women; Could Sex-Specific Thresholds Help?（ACG 2026 會議報導）"
+    url: https://www.hcplive.com/view/fit-misses-more-crcs-in-women-could-sex-specific-thresholds-help-
+  - text: "Healio：Sex-specific FIT thresholds could equalize CRC detection（ACG 2026 會議報導）"
+    url: https://www.healio.com/news/gastroenterology/20261016/equal-colorectal-cancer-detection-may-require-different-fit-thresholds-for-men-women
+  - text: "Medscape：Fecal Colorectal Cancer Test Accuracy Differs by Gender（ACG 2026 會議報導）"
+    url: https://www.medscape.com/viewarticle/fecal-colorectal-cancer-test-accuracy-differs-gender-2026a10013e3
 ---
 
 收到糞便潛血檢查「陰性」的報告，很多人會鬆一口氣，以為大腸癌這件事可以先放下。陰性確實代表這次檢查**沒有驗到超過閾值的糞便血紅素**，但**陰性並不等於保證沒有大腸癌**。
@@ -60,7 +69,7 @@ FIT 會有**偽陰性**（有病灶卻驗成陰性）。可能與下列因素有
 - 結果**陽性**，一定要做大腸鏡
 - 結果**陰性**，也不要只靠一次報告就完全放心
 
-台灣的大腸癌篩檢以 FIT 為主力；是否符合公費或定期篩檢資格、間隔多久做一次，請依當時衛生單位公告與您的醫師建議為準。完整研究整理亦可參考：[胃腸肝膽新知週報（2026/10/26）](/news/2026-10-26-hbv-vaccine-hcv-8-weeks-fit/)
+台灣的大腸癌篩檢以 FIT 為主力；是否符合公費或定期篩檢資格、間隔多久做一次，請依當時衛生單位公告與您的醫師建議為準。整個篩檢流程的全貌見[大腸癌篩檢完整指南](/topics/colon-screening/)。完整研究整理亦可參考：[胃腸肝膽新知週報（2026/10/26）](/news/2026-10-26-hbv-vaccine-hcv-8-weeks-fit/)
 
 ## 陰性但有這些情況，仍請就醫
 
@@ -73,23 +82,10 @@ FIT 會有**偽陰性**（有病灶卻驗成陰性）。可能與下列因素有
 
 這些是一般常見的就醫警訊，不是用來自行診斷癌症，也不是要製造恐慌。重點是：**症狀對不上「一切正常」時，不要因為一次陰性而延後就醫。** 醫師會依年齡、家族史、症狀持續時間與檢查品質，和您討論下一步。
 
-## 結語：和醫師一起解讀你的結果
+## 和醫師一起解讀你的結果
 
 大腸癌篩檢不是一次考試，而是一段時間內反覆評估風險與症狀的過程。FIT 是重要的篩檢工具，能幫助許多人及早發現問題；但它不是保證書，也無法取代症狀評估與必要時的大腸鏡。陰性值得鬆一口氣，卻也值得問一句：「我有沒有症狀？下次篩檢什麼時候？需不需要直接討論大腸鏡？」把報告和身體狀況一起帶去門診，才能做出適合自己的下一步。
 
-**本文為一般衛教資訊，不能取代個別診療。** 有疑問請與您的醫師討論。
+如果你以前做過大腸鏡、也切過瘜肉，追蹤的間隔和這篇講的篩檢不一樣：[大腸鏡切了瘜肉，下一次要多久後再做？](/articles/polyp-surveillance-interval/)
 
 ---
-
-陳昱甫醫師｜胃腸肝膽專科｜[gidrchenyufu.com](https://gidrchenyufu.com)
-
-## 參考文獻
-
-1. Imperiale TF, Porter K, Limburg P. Performance characteristics of fecal immunochemical tests in males and females: should the threshold vary? Presented at: American College of Gastroenterology 2026 Annual Scientific Meeting; 2026 Oct 9–14; Nashville, TN.（年會口頭發表，尚未見正式論文）
-2. Imperiale TF, et al. Multitarget stool DNA testing for colorectal-cancer screening. N Engl J Med. 2014;370(14):1287-97. doi:[10.1056/NEJMoa1311194](https://doi.org/10.1056/NEJMoa1311194)（DeeP-C 試驗，上述分析的資料來源之一）
-3. N Engl J Med. 2024;390(11):984-93. doi:[10.1056/NEJMoa2310336](https://doi.org/10.1056/NEJMoa2310336)（BLUE-C 試驗，上述分析的資料來源之一）
-
-延伸閱讀（新聞報導）：
-- [HCPLive：FIT Misses More CRCs in Women; Could Sex-Specific Thresholds Help?](https://www.hcplive.com/view/fit-misses-more-crcs-in-women-could-sex-specific-thresholds-help-)
-- [Healio：Sex-specific FIT thresholds could equalize CRC detection](https://www.healio.com/news/gastroenterology/20261016/equal-colorectal-cancer-detection-may-require-different-fit-thresholds-for-men-women)
-- [Medscape：Fecal Colorectal Cancer Test Accuracy Differs by Gender](https://www.medscape.com/viewarticle/fecal-colorectal-cancer-test-accuracy-differs-gender-2026a10013e3)
