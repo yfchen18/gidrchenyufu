@@ -9,6 +9,8 @@ interface Props {
 const { variant = "footer" } = Astro.props;
 
 const icons: Record<string, string> = {
+  facebook:
+    '<rect x="3" y="3" width="18" height="18" rx="5"/><path d="M15 7.5h-1.2A1.8 1.8 0 0 0 12 9.3V20M10 12.5h5"/>',
   instagram:
     '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
   threads:
@@ -39,7 +41,7 @@ const icons: Record<string, string> = {
             set:html={icons[s.id]}
           />
           <span>{s.label}</span>
-          {variant === "list" && <span class="social-handle">@{s.url.replace(/\/$/, "").split("/").pop()!.replace(/^@/, "")}</span>}
+          {variant === "list" && s.handle && <span class="social-handle">@{s.handle}</span>}
         </a>
       </li>
     ))}
