@@ -65,6 +65,7 @@ references:
 |---|---|---|---|
 | `/articles/anal-pain-and-fissure/` | 肛門痛不一定是痔瘡：肛裂、膿瘍與血栓痔怎麼分 | 痔瘡與血便 | `[肛門痛不一定是痔瘡：肛裂、膿瘍與血栓痔怎麼分](/articles/anal-pain-and-fissure/)` |
 | `/articles/chronic-constipation/` | 長期便秘怎麼處理？為什麼有些人吃瀉藥也沒用 | 腸躁症與便秘 | `[長期便秘怎麼處理？為什麼有些人吃瀉藥也沒用](/articles/chronic-constipation/)` |
+| `/articles/coffee-and-gerd/` | 胃食道逆流可以喝咖啡嗎？怎麼喝、喝哪一種比較不會火燒心 | 胃食道逆流 | `[胃食道逆流可以喝咖啡嗎？怎麼喝、喝哪一種比較不會火燒心](/articles/coffee-and-gerd/)` |
 | `/articles/colonoscopy-bowel-prep/` | 大腸鏡清腸藥怎麼喝才會乾淨？時間表與低渣飲食全解析 | 胃鏡與大腸鏡檢查 | `[大腸鏡清腸藥怎麼喝才會乾淨？時間表與低渣飲食全解析](/articles/colonoscopy-bowel-prep/)` |
 | `/articles/diabetes-liver-fibrosis-screening/` | 有糖尿病，為什麼醫師要幫你檢查肝纖維化？ | 脂肪肝（MASLD） | `[有糖尿病，為什麼醫師要幫你檢查肝纖維化？](/articles/diabetes-liver-fibrosis-screening/)` |
 | `/articles/elevated-liver-enzymes/` | 健檢肝指數 GOT、GPT 偏高，接下來要查什麼？ | 脂肪肝（MASLD） | `[健檢肝指數 GOT、GPT 偏高，接下來要查什麼？](/articles/elevated-liver-enzymes/)` |

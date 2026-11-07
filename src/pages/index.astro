@@ -26,7 +26,10 @@ const latestNews = (await getNews())[0];
 const bySymptom: { symptom: string; links: { text: string; href: string }[] }[] = [
   {
     symptom: "火燒心、酸水上湧、胸口灼熱",
-    links: [{ text: "胃食道逆流怎麼治", href: "/articles/gerd-symptoms-and-treatment/" }],
+    links: [
+      { text: "胃食道逆流怎麼治", href: "/articles/gerd-symptoms-and-treatment/" },
+      { text: "還能不能喝咖啡", href: "/articles/coffee-and-gerd/" },
+    ],
   },
   {
     symptom: "吃辣就胃痛、火燒心，想知道要不要戒辣",
